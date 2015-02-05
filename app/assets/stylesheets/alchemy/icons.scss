@@ -3,16 +3,21 @@
   background: image-url('alchemy/icons.png') no-repeat;
   width: 16px;
   height: 16px;
+  line-height: 0;
+  font-size: 16px;
+  text-align: center;
+  color: $default-icon-color;
 
-  &.add {
+  &.add, &.create, &.new_element, &.tag_add {
     background: none;
-    @extend .icon-plus-2;
-    line-height: 1em;
-    font-size: 19px;
+    @extend .fi-plus;
+    color: $green;
   }
 
   &.add_page {
-    background-position: -96px -40px;
+    @extend .fi-page-add;
+    background: none;
+    color: $green;
   }
 
   &.archive {
@@ -40,20 +45,22 @@
   }
 
   &.clipboard {
-    background-position: -288px -104px;
+    @extend .fi-clipboard;
+    background: none;
 
     &.full {
-      background-position: -320px -104px;
+      @extend .fi-clipboard-notes;
     }
   }
 
   &.close {
-    background-position: -416px -39px;
+    @extend .fi-x;
+    background: none;
+    color: $red;
 
     &.small {
-      background: none;
-      @extend .icon-cross;
       line-height: 0;
+      font-size: 12px;
     }
   }
 
@@ -61,56 +68,72 @@
     background-position: -512px -106px;
   }
 
-  &.configure_page {
-    background-position: -320px -40px;
+  &.configure_page, &.settings {
+    @extend .fi-widget;
+    background: none;
   }
 
   &.copy_page {
-    background-position: -544px -40px;
-  }
-
-  &.create {
-    background-position: -191px -168px;
+    @extend .fi-page-copy;
+    background: none;
   }
 
   &.crop {
-    background-position: -256px -72px;
+    @extend .fi-crop;
+    background: none;
   }
 
   &.delete_page {
-    background-position: -64px -40px;
+    @extend .fi-page-remove;
+    background: none;
+    color: $red;
   }
 
   &.delete-small {
-    background-position: -1px -72px;
+    @extend .fi-minus;
+    background: none;
+    color: $red;
+    font-size: 10px;
   }
 
-  &.destroy {
-    background-position: -224px -169px;
+  &.destroy, &.delete, &.tag_delete, &.file_delete {
+    @extend .fi-minus;
+    background: none;
+    color: $red;
   }
 
-  &.edit {
-    background-position: -160px -168px;
+  &.edit, &.tag_edit, &.file_edit {
+    @extend .fi-pencil;
+    background: none;
   }
 
   &.element, &.clipboard_elements {
-    background-position: -224px -72px;
+    @extend .fi-layout;
+    background: none;
   }
 
   &.element_draft {
-    background-position: 1px -70px;
+    @extend .fi-x;
+    background: none;
+    color: $red;
+    font-size: 12px;
   }
 
   &.element_public {
-    background-position: -94px -166px;
+    @extend .fi-check;
+    background: none;
+    color: $green;
+    font-size: 12px;
   }
 
   &.element_window {
-    background-position: -512px -72px;
+    @extend .fi-list-thumbnails;
+    background: none;
   }
 
   &.error {
-    background-position: -32px -168px;
+    @extend .fi-x-circle;
+    background: none;
   }
 
   &.excel {
@@ -129,16 +152,9 @@
     background-position: 0 -40px;
   }
 
-  &.file_delete {
-    background-position: -64px -40px;
-  }
-
   &.file_download, &.download {
-    background-position: -480px -136px;
-  }
-
-  &.file_edit {
-    background-position: -32px -40px;
+    @extend .fi-download;
+    background: none;
   }
 
   &.flash {
@@ -146,11 +162,14 @@
   }
 
   &.flush {
-    background-position: -352px -39px;
+    @extend .fi-asterisk;
+    background: none;
   }
 
   &.hint {
-    background-position: -446px -105px;
+    @extend .fi-lightbulb;
+    background: none;
+    color: $blue;
   }
 
   &.image {
@@ -158,31 +177,14 @@
   }
 
   &.info {
-    background-position: -64px -168px;
-  }
-
-  &.language {
-    background-position: 0 -120px;
-  }
-
-  &.language_add {
-    background-position: -47px -120px;
-  }
-
-  &.language_delete {
-    background-position: -16px -120px;
-  }
-
-  &.language_edit {
-    background-position: -32px -120px;
+    @extend .fi-info;
+    background: none;
+    color: $blue;
   }
 
   &.link {
-    background-position: -320px -72px;
-  }
-
-  &.new_element {
-    background-position: -384px -40px;
+    @extend .fi-link;
+    background: none;
   }
 
   &.offline {
@@ -194,7 +196,8 @@
   }
 
   &.page, &.clipboard_pages {
-    background-position: 0 -40px;
+    @extend .fi-page;
+    background: none;
   }
 
   &.pdf {
@@ -210,7 +213,8 @@
   }
 
   &.publish {
-    background-position: -64px -136px;
+    @extend .fi-like;
+    background: none;
   }
 
   &.rtf {
@@ -218,50 +222,33 @@
   }
 
   &.search {
+    @extend .fi-magnifying-glass;
     background: none;
-    padding-top: 2px;
-    @extend .icon-magnifying-glass;
   }
 
   &.select_all {
-    background-position: -256px -168px;
-  }
-
-  &.settings {
-    background-position: -320px -40px;
+    @extend .fi-checkbox;
+    background: none;
   }
 
   &.sort {
-    background-position: -128px -168px;
+    @extend .fi-shuffle;
+    background: none;
   }
 
   &.swap_picture {
-    background-position: -288px -72px;
+    @extend .fi-loop;
+    background: none;
   }
 
   &.sync, &.reload {
-    background-position: -96px -136px;
-  }
-
-  &.tag_add {
-    background-position: -384px -168px;
-  }
-
-  &.tag {
-    background-position: -288px -168px;
-  }
-
-  &.tag_label {
+    @extend .fi-refresh;
     background: none;
-    @extend .icon-tag;
   }
 
-  &.tag_edit {
-    background-position: -352px -168px;
-  }
-
-  &.tag_delete {
-    background-position: -320px -168px;
+  &.tag, &.tag_label {
+    @extend .fi-price-tag;
+    background: none;
   }
 
   &.text {
@@ -269,23 +256,28 @@
   }
 
   &.tick, &.true, &.notice, &.ok {
-    background-position: -32px -73px;
+    @extend .fi-check;
+    background: none;
+    color: $green;
   }
 
   &.trash {
-    background-position: -352px -104px;
+    @extend .fi-trash;
+    background: none;
 
     &.full {
-      background-position: -384px -104px;
+      color: $orange;
     }
   }
 
   &.unlink {
-    background-position: -352px -72px;
+    @extend .fi-unlink;
+    background: none;
   }
 
   &.upload {
-    background-position: 0 -136px;
+    @extend .fi-upload;
+    background: none;
   }
 
   &.vcard {
@@ -297,11 +289,13 @@
   }
 
   &.visit_page {
-    background-position: -31px -135px;
+    @extend .fi-arrow-right;
+    background: none;
   }
 
   &.warning, &.warn, &.alert {
-    background-position: 0 -168px;
+    @extend .fi-alert;
+    background: none;
 
     &.inline { vertical-align: baseline; }
   }
@@ -311,14 +305,17 @@
   }
 
   &.zoom-equal {
-    background-position: -448px -72px;
+    @extend .fi-magnifying-glass;
+    background: none;
   }
 
   &.zoom-in {
-    background-position: -480px -72px;
+    @extend .fi-zoom-in;
+    background: none;
   }
 
   &.zoom-out {
-    background-position: -416px -72px;
+    @extend .fi-zoom-out;
+    background: none;
   }
 }

@@ -567,7 +567,7 @@
 
 .ui-icon-refresh {
   background: none !important;
-  @extend .icon-ccw;
+  @extend .fi-loop;
 
   &:before {
     text-indent: 0;
@@ -580,7 +580,7 @@
 .ui-icon-fullscreen {
   background: none !important;
   position: relative;
-  @extend .icon-fullscreen;
+  @extend .fi-arrows-out;
 
   &:before {
     text-indent: 0;
@@ -594,7 +594,7 @@
 .ui-icon-exit-fullscreen {
   background: none !important;
   position: relative;
-  @extend .icon-fullscreen-exit;
+  @extend .fi-arrows-in;
 
   &:before {
     text-indent: 0;
@@ -771,7 +771,7 @@
 .ui-icon-closethick {
   background: none !important;
   position: relative;
-  @extend .icon-cross;
+  @extend .fi-x;
 
   &:before {
     text-indent: 0;

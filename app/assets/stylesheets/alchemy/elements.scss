@@ -58,8 +58,8 @@ span.preview_text_element_name {
 
   .element.icon {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -2px;
+    left: -2px;
   }
 
   span.icon {
@@ -68,7 +68,10 @@ span.preview_text_element_name {
     bottom: 0;
 
     &.element_dirty {
-      background-position: -160px -166px;
+      @extend .fi-pencil;
+      background: none;
+      color: $orange;
+      font-size: 12px;
     }
   }
 }
@@ -257,15 +260,16 @@ span.element_tools_icons {
   margin: 1px 4px 1px 1px;
 }
 
-a.delete_element_button {
-  background: image-url('alchemy/icons.png') no-repeat -63px -72px;
+.delete_element_button {
+  @extend .fi-trash;
+  color: $red;
 }
 
-a.element_copy_button {
+.element_copy_button {
   background: image-url('alchemy/icons.png') no-repeat -128px -72px;
 }
 
-a.element_move_button {
+.element_move_button {
   background: image-url('alchemy/icons.png') no-repeat -97px -72px;
 }
 
@@ -320,8 +324,8 @@ div#cells {
   }
 }
 
-a.expand_element {
-  background: image-url('alchemy/icons.png') no-repeat -160px -72px;
+.expand_element {
+  @extend .fi-arrows-expand;
   height: 16px;
   width: 16px;
   text-decoration: none;
@@ -329,8 +333,8 @@ a.expand_element {
   margin: 1px;
 }
 
-a.fold_element {
-  background: image-url('alchemy/icons.png') no-repeat -192px -72px;
+.fold_element {
+  @extend .fi-arrows-compress;
   height: 16px;
   width: 16px;
   text-decoration: none;
@@ -422,7 +426,7 @@ div.essence_picture_editor {
 
   .thumbnail_background.missing:before {
     font-family: 'Alchemy Icons';
-    @extend .icon-pictures:before;
+    @extend .fi-photo:before;
     font-size: 48px;
     color: $medium-gray;
     vertical-align: top;

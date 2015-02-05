@@ -7,7 +7,7 @@
     name: 'modules.dashboard'
     controller: 'alchemy/admin/dashboard'
     action: index
-    image: 'alchemy/icon.svg'
+    icon: dashboard
     sub_navigation:
       - name: 'modules.dashboard'
         controller: 'alchemy/admin/dashboard'
