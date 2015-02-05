@@ -19,16 +19,14 @@
   width: 65px;
   overflow: hidden;
   border-right: $default-border;
-  background: $light-blue;
+  background: #2c3e50;
   font-size: 10px;
   @extend .disable-user-select;
 
   label {
     display: block;
-  }
-
-  a {
-    text-shadow: #fff 0 0px 4px;
+    color: $main-menu-label-color;
+    font-size: 1em;
   }
 }
 
@@ -58,15 +56,15 @@
     }
 
     &.active {
-      background: #baced9;
-      color: $text-color;
       cursor: default;
-      text-shadow: #fff 0 1px 2px;
-      border: $default-border;
-      padding-left: 0;
-      border-right-style: none;
-      padding-top: 6px;
-      padding-bottom: 5px;
+
+      label {
+        color: $main-menu-active-label-color;
+      }
+
+      .icon {
+        color: $main-menu-active-icon-color;
+      }
     }
 
     img {
@@ -122,7 +120,7 @@ div#overlay_text_box {
   left: 0;
   text-align: center;
   width: 65px;
-  background: $light-blue;
+  background: $main-menu-background;
 
   a {
     display: block;
@@ -166,8 +164,9 @@ div#user_info {
   right: 65px;
   line-height: 28px;
   font-size: 11px;
+  color: $white;
   padding: 0 8px;
-  background-color: $light-blue;
+  background-color: $main-menu-background;
 
   .select2-container {
     margin-top: -2px;
@@ -182,7 +181,7 @@ div#user_info {
 #sub_navigation {
   height: 24px;
   line-height: 23px;
-  background: $light-blue;
+  background: $main-menu-background;
   border-bottom: $default-border;
   padding-top: 4px;
   position: relative;
