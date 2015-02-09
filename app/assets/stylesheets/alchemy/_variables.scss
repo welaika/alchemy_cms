@@ -8,16 +8,26 @@ $dark-gray: #666666;
 $light_yellow: #ffffdc;
 $linked-color: #ffd77a;
 $white: #f2f2f2;
+$red: #c0392b;
+$orange: #e67e22;
+$green: #27ae60;
+$blue-icon: #2980b9;
 
 $default-font-face: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, Tahoma, sans-serif;
 $mono-font-face: Menlo, Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
 $default-font-size: 12px;
 $default-font-style: $default-font-size $default-font-face;
+$default-icon-color: $dark-gray;
 
 $dialog-header-height: 36px;
 $header-color: $light-blue;
 $header-text-color: $text-color;
 $header-font-size: $default-font-size;
+
+$main-menu-label-color: $white;
+$main-menu-active-label-color: $white;
+$main-menu-active-icon-color: $white;
+$main-menu-icon-color: #44799e;
 
 $default-padding: 4px;
 $default-margin: $default-padding;
@@ -59,3 +69,5 @@ $error_background_color: #efd3d3;
 
 $form-left-width: 35%;
 $form-right-width: 65%;
+
+$icon-size: 20px;

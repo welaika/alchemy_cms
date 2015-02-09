@@ -148,7 +148,7 @@ div.assign_image_list_image {
   height: 16px;
   position: absolute;
   background-color: white;
-  top: 3px;
+  top: 1px;
   padding: 1px;
   z-index: 10;
   display: none;
@@ -171,7 +171,7 @@ div.assign_image_list_image {
   }
 
   &.delete {
-    right: 4px;
+    right: 3px;
 
     a {
       @extend .fi-x;
@@ -196,7 +196,7 @@ div.assign_image_list_image {
 
     a {
       @extend .fi-info;
-      color: $blue;
+      color: $blue-icon;
     }
   }
 
@@ -204,7 +204,13 @@ div.assign_image_list_image {
     display: block;
     width: 16px;
     height: 16px;
+    font-size: 16px;
+    text-align: center;
     cursor: pointer;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 

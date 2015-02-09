@@ -1,10 +1,10 @@
 .icon {
   @include inline-block;
   background: image-url('alchemy/icons.png') no-repeat;
-  width: 16px;
-  height: 16px;
-  line-height: 0;
-  font-size: 16px;
+  width: $icon-size;
+  height: $icon-size;
+  line-height: 1;
+  font-size: $icon-size;
   text-align: center;
   color: $default-icon-color;
 
@@ -56,7 +56,6 @@
   &.close {
     @extend .fi-x;
     background: none;
-    color: $red;
 
     &.small {
       line-height: 0;
@@ -169,7 +168,7 @@
   &.hint {
     @extend .fi-lightbulb;
     background: none;
-    color: $blue;
+    color: $blue-icon;
   }
 
   &.image {
@@ -179,7 +178,7 @@
   &.info {
     @extend .fi-info;
     background: none;
-    color: $blue;
+    color: $blue-icon;
   }
 
   &.link {
@@ -223,6 +222,9 @@
 
   &.search {
     @extend .fi-magnifying-glass;
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
     background: none;
   }
 
@@ -266,7 +268,7 @@
     background: none;
 
     &.full {
-      color: $orange;
+      @include text-shadow();
     }
   }
 

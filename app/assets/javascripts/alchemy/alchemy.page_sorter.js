@@ -19,7 +19,7 @@ if (typeof(Alchemy) === 'undefined') {
         listType: 'ul',
         opacity: 0.5,
         placeholder: 'placeholder',
-        tabSize: 16,
+        tabSize: 40,
         tolerance: 'pointer',
         toleranceElement: '> div'
       });

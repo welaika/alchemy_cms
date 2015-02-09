@@ -9,7 +9,7 @@
   border-bottom: $default-border;
 
   div.info {
-    margin: 8px 8px 8px 78px;
+    margin: 2*$default-margin 2*$default-margin 2*$default-margin 78px;
     width: 720px;
   }
 
@@ -22,7 +22,7 @@
   background-color: #fff;
   color: black;
   display: block;
-  padding-left: 4px;
+  padding-left: 2*$default-padding;
   text-decoration: none;
   @include transition(background-color, 400ms);
 
@@ -38,23 +38,23 @@
       width: 16px;
       height: 16px;
       float: left;
-      margin-right: 4px;
+      margin-right: $default-margin;
       background: image-url('alchemy/icons.png') -160px -168px;
-      margin-top: 4px;
+      margin-top: $default-margin;
     }
   }
 }
 
 .redirect_url {
   position: absolute;
-  top: 4px;
+  top: $default-padding;
   right: 199px;
   text-align: right;
   background-color: #fff0c4;
   line-height: 22px;
-  padding-right: 4px;
+  padding-right: $default-padding;
   font-size: 10px;
-  padding-left: 4px;
+  padding-left: $default-padding;
   max-width: 45%;
   white-space: nowrap;
   overflow: hidden;
@@ -79,9 +79,8 @@
 }
 
 .sitemap_page {
-  height: 22px;
-  padding-bottom: 4px;
-  padding-top: 4px;
+  padding-bottom: $default-padding;
+  padding-top: $default-padding;
   position: relative;
 
   &.highlight .sitemap_pagename_link {
@@ -97,27 +96,35 @@
   }
 }
 
-div.sitemap_left_images {
-  width: 16px;
-  margin-top: 3px;
+.sitemap_left_images {
+  width: 32px;
   float: left;
-  margin-right: 8px;
-  background-color: $light-gray;
+  background-color: $medium-gray;
+  height: 32px;
+  text-align: center;
+  line-height: 26px;
+  @extend .left-rounded-border;
 }
 
 .sitemap_right_tools {
-  height: 22px;
+  height: 32px;
   background-color: $light-gray;
   padding-left: 8px;
   float: right;
-  width: 120px;
 
   .sitemap_tool {
     float: left;
-    width: 24px;
-    height: 24px;
-    line-height: 24px;
+    width: 30px;
+    height: 30px;
+    line-height: 2;
     text-align: center;
+    border: 1px solid transparent;
+    @include border-radius($default-border-radius);
+    margin-right: $default-margin;
+
+    &:hover {
+      border-color: $default-border-color;
+    }
   }
 
   .icon.blank {
@@ -129,9 +136,8 @@ div.sitemap_left_images {
 }
 
 .sitemap_sitetools {
-  padding: 0;
+  padding-left: $default-padding;
   float: left;
-  width: 72px;
 }
 
 div#page_selector_container div.sitemap_right_tools {
@@ -177,7 +183,7 @@ ul#sitemap {
     }
 
     li {
-      padding-left: 22px;
+      padding-left: 32px;
       padding-right: 0;
     }
   }
@@ -196,24 +202,21 @@ ul#sitemap li .sitemap_toolrow,
 ul.list li .sitemap_toolrow {
   margin: 0;
   overflow: auto;
-  padding: 4px 0;
+  padding: $default-padding 0;
 }
 
 ul#sitemap .sitemap_sitename,
 ul.list .sitemap_sitename {
-  height: 22px;
-  line-height: 22px;
+  line-height: 32px;
   overflow: hidden;
 }
 
-div.page_infos {
+.page_infos {
   @extend .right-rounded-border;
   background-color: #fff;
-  border-left: 1px solid $light-gray;
   float: right;
-  height: 20px;
-  padding: 1px;
-  width: 68px;
+  height: 32px;
+  padding: 0 $default-padding;
 }
 
 #sub_navigation .page_status_and_name .page_status {
@@ -223,8 +226,9 @@ div.page_infos {
 }
 
 .page_status {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  line-height: 32px;
+  font-size: $icon-size;
   float: left;
 
   &.restricted {
@@ -238,18 +242,18 @@ div.page_infos {
   }
 
   &.visible {
-    @extend .fi-eye;
+    @extend .fi-marker;
     color: $green;
   }
 
   &.not_visible {
-    @extend .fi-eye;
+    @extend .fi-marker;
     @include opacity(0.3);
   }
 
   &.public {
     @extend .fi-web;
-    color: $blue;
+    color: $blue-icon;
   }
 
   &.not_public {
@@ -259,11 +263,14 @@ div.page_infos {
 }
 
 #sitemap .page_status {
-  margin: 2px 2px 0 4px;
+  margin: 0px 2px 0 $default-padding;
 }
 
 .alchemy-dialog .page_status {
-  margin: 2px 4px 0 0;
+  margin: 0px 6px 0 0px;
+  line-height: inherit;
+  font-size: 16px;
+  text-align: center;
 }
 
 #sitemap {
@@ -271,11 +278,6 @@ div.page_infos {
   &.sorting {
 
     .page.icon { cursor: move }
-  }
-
-  .page.icon {
-    float: left;
-    position: relative;
   }
 
   .locked .page.icon {
@@ -286,7 +288,7 @@ div.page_infos {
 
 .sitemap_sitestatus {
   float: right;
-  margin-top: 4px;
+  margin-top: $default-padding;
 }
 
 a.folder_link {
@@ -343,7 +345,7 @@ h2#sitemap_heading {
 
   .close_elements_from_page_selector {
     position: absolute;
-    right: 4px;
+    right: $default-padding;
     top: 12px;
     font-size: 16px;
     width: 16px;
@@ -372,13 +374,13 @@ h2#sitemap_heading {
   height: 33px;
   padding: $default-padding;
   border: $default-border;
-  @include box-shadow(#9ea09f 0px 0px 4px);
+  @include box-shadow(#9ea09f 0px 0px $default-padding);
   @extend %rounded-border;
 
   .spinner {
     top: 17px !important;
     left: 50% !important;
-    margin-left: 4px;
+    margin-left: $default-padding;
   }
 
   .alchemy_selectbox {

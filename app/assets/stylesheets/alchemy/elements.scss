@@ -258,6 +258,7 @@ span.element_tools_icons {
   height: 16px;
   float: left;
   margin: 1px 4px 1px 1px;
+  font-size: 16px;
 }
 
 .delete_element_button {
@@ -326,20 +327,28 @@ div#cells {
 
 .expand_element {
   @extend .fi-arrows-expand;
+  font-size: 16px;
+  color: $default-icon-color;
   height: 16px;
   width: 16px;
   text-decoration: none;
   display: block;
   margin: 1px;
+
+  &:hover { text-decoration: none }
 }
 
 .fold_element {
   @extend .fi-arrows-compress;
+  font-size: 16px;
+  color: $default-icon-color;
   height: 16px;
   width: 16px;
   text-decoration: none;
   display: block;
   margin: 1px;
+
+  &:hover { text-decoration: none }
 }
 
 .droppable_element_placeholder {
@@ -380,6 +389,12 @@ div#cells {
     &.disabled {
       @include opacity(0.3);
       cursor: default;
+    }
+
+    .icon {
+      font-size: 16px;
+      width: 16px;
+      height: 16px;
     }
   }
 }
