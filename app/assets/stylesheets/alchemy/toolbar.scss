@@ -2,9 +2,6 @@
   z-index: 10;
   @extend %gradiated-toolbar;
   margin-right: 0px;
-  border: $default-border;
-  border-top-style: none;
-  border-right-style: none;
   position: relative;
 
   .button_with_label {

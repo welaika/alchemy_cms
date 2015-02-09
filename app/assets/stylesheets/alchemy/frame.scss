@@ -2,8 +2,8 @@
   @include box-sizing(border-box);
   position: fixed;
   top: 0;
-  margin-left: 65px;
-  padding-right: 65px;
+  margin-left: $main-menu-width;
+  padding-right: $main-menu-width;
   z-index: 30;
   width: 100%;
   @extend .disable-user-select;
@@ -16,56 +16,48 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 65px;
+  width: $main-menu-width;
   overflow: hidden;
-  border-right: $default-border;
-  background: $light-blue;
-  font-size: 10px;
+  background-color: $main-menu-background-color;
   @extend .disable-user-select;
 
   label {
-    display: block;
-  }
-
-  a {
-    text-shadow: $white 0 0px 2px;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
   }
 }
 
 #main_navi {
-  padding-top: 21px;
-  padding-left: 4px;
   padding-bottom: 80px;
 
   .main_navi_entry {
-    color: #444;
+    color: $light-gray;
     position: relative;
     text-align: center;
     overflow: hidden;
     display: block;
-    padding-top: 7px;
-    @extend .left-rounded-border;
-    border: 1px none #afafaf;
-    border-right-style: none;
-    padding-bottom: 6px;
-    padding-left: 1px;
-    width: 60px;
+    padding: 12px 0;
 
     &:hover {
       cursor: pointer;
       text-decoration: none;
-      color: $text-color;
+      background-color: $main-menu-hover-color;
     }
 
     &.active {
-      background: #baced9;
-      color: $text-color;
+      background: $main-menu-active-color;
       cursor: default;
-      border: $default-border;
-      padding-left: 0;
-      border-right-style: none;
-      padding-top: 6px;
-      padding-bottom: 5px;
+
+      .icon {
+        color: $green;
+      }
+
+      label {
+        color: $white;
+        padding-bottom: 1px;
+        border-bottom: 2px solid $green;
+      }
     }
 
     img {
@@ -79,7 +71,7 @@
   }
 }
 
-div#overlay {
+#overlay {
   display: none;
   position: fixed;
   left: 0px;
@@ -88,7 +80,6 @@ div#overlay {
   height: 100%;
   z-index: 400000;
   background-color: rgba(229, 229, 229, 0.4);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = #40E5E5E5, endColorstr = #40E5E5E5);
 
   .spinner {
     top: 50%;
@@ -96,7 +87,7 @@ div#overlay {
   }
 }
 
-div#overlay_text_box {
+#overlay_text_box {
   color: #333333;
   font-size: 18px;
   left: 50%;
@@ -114,22 +105,33 @@ div#overlay_text_box {
   }
 }
 
+#menu_logo {
+  line-height: 46px;
+  text-align: center;
+  background-color: darken($dark-blue, 10%);
+
+  img {
+    vertical-align: middle;
+  }
+}
+
 #logout {
   position: absolute;
+  width: 100%;
   z-index: 1;
   bottom: 0;
   left: 0;
   text-align: center;
-  width: 65px;
-  background: $light-blue;
 
   a {
     display: block;
-    padding-top: 4px;
-    padding-bottom: 8px;
+    padding: 12px 0;
+    color: $main-menu-label-color;
+    background: $main-menu-background-color;
 
     &:hover {
       text-decoration: none;
+      background: $main-menu-hover-color;
     }
   }
 
@@ -141,7 +143,7 @@ div#overlay_text_box {
 #main_content {
   @include box-sizing(border-box);
   background-color: $light-gray;
-  padding: 83px 16px 8px 82px;
+  padding: 83px 16px 8px $main-menu-width+16px;
   z-index: 0;
   width: 100%;
   height: 100%;
@@ -159,14 +161,15 @@ div#overlay_text_box {
   }
 }
 
-div#user_info {
+#user_info {
   position: absolute;
   top: 0;
-  right: 65px;
-  line-height: 28px;
+  right: $main-menu-width;
+  line-height: $top-menu-height;
   font-size: 11px;
   padding: 0 8px;
-  background-color: $light-blue;
+  background-color: $main-menu-background-color;
+  color: $main-menu-label-color;
 
   .select2-container {
     margin-top: -2px;
@@ -179,15 +182,15 @@ div#user_info {
 }
 
 #sub_navigation {
-  height: 24px;
-  line-height: 23px;
-  background: $light-blue;
-  border-bottom: $default-border;
-  padding-top: 4px;
+  height: $top-menu-height;
+  background: $main-menu-background-color;
+  color: $main-menu-label-color;
   position: relative;
 
   a {
     @include inline-block;
+    color: inherit;
+    font-weight: bold;
 
     &:hover {
       text-decoration: none;
@@ -200,12 +203,11 @@ div#user_info {
     text-shadow: 0px 1px 1px #FFFFFF;
     @extend .disable-user-select;
     cursor: default;
-    line-height: 27px;
+    line-height: $top-menu-height;
     float: left;
-    @extend .top-rounded-border;
     border: $default-border;
     border-bottom-style: none;
-    height: 24px;
+    height: $top-menu-height;
     margin-right: 1px;
 
     .page_name {
@@ -233,65 +235,71 @@ div#user_info {
 
   .subnavi_tab {
     float: left;
-    line-height: 21px;
-    height: 23px;
-    text-shadow: #fff 0 0px 4px;
-    background: #d6e0e6;
-    color: #444;
-    @extend .top-rounded-border;
-    border: $default-border;
-    border-bottom-style: none;
-    margin-right: 1px;
 
     &.wide {
       position: relative;
-      padding-right: 24px;
 
       form {
         position: absolute;
+        top: 50%;
         right: $default-padding;
-        top: $default-padding;
+        margin-top: -2*$default-padding;
         line-height: 1;
       }
     }
 
     &:hover {
-      color: $text-color;
+      background-color: $main-menu-hover-color;
       text-decoration: none;
     }
 
     &.active {
       position: relative;
-      height: 24px;
-      color: $text-color;
-      background-color: $medium-gray;
-      text-shadow: #fff 0 1px 2px;
       @extend .disable-user-select;
       cursor: default;
       z-index: 10;
+      background-color: $main-menu-active-color;
+
+      label {
+        color: $white;
+        padding-bottom: 1px;
+        border-bottom: 2px solid $green;
+      }
     }
 
     > a {
-      padding: 0px 8px;
+      padding: 0px 24px;
+      line-height: $top-menu-height;
+
+      label {
+        cursor: pointer;
+      }
     }
 
     .inline.icon {
       vertical-align: text-bottom;
     }
+
+    button {
+      text-shadow: none;
+    }
+
+    .icon.close {
+      color: rgb(99, 116, 134);
+    }
   }
 }
 
 #subnav_additions {
-  height: 25px;
   overflow: hidden;
 
   label {
     float: left;
     font-size: 10px;
-    line-height: 27px;
-    height: 27px;
+    line-height: $top-menu-height;
     margin-left: 8px;
     margin-right: 4px;
+    color: $white;
   }
 
   img {

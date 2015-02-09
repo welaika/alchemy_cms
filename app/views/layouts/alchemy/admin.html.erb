@@ -48,6 +48,9 @@
       </div>
     </div>
     <div id="left_menu">
+      <div id="menu_logo">
+        <%= image_tag "alchemy/icon.svg" %>
+      </div>
       <div id="main_navi">
         <% sorted_alchemy_modules.each do |alchemy_module| %>
           <%= alchemy_main_navigation_entry(alchemy_module) %>
@@ -57,7 +60,7 @@
       <div id="logout">
         <% if current_alchemy_user %>
           <%= link_to_dialog(
-            "#{render_icon('exit module')}<label>#{_t(:leave)}</label>".html_safe,
+            "#{render_icon('exit module')}<br><label>#{_t(:leave)}</label>".html_safe,
             alchemy.leave_admin_path, {
               size: "300x155",
               title: _t("Leave Alchemy")
@@ -65,6 +68,7 @@
         <% else %>
           <%= link_to(alchemy.root_path) do %>
             <span class="module icon exit"></span>
+            <br>
             <label><%= _t(:leave) %></label>
           <% end %>
         <% end %>

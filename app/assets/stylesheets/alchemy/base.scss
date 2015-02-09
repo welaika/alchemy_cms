@@ -30,9 +30,10 @@ body {
   padding: 0;
   color: $text-color;
   font: $default-font-style;
-  background-color: $light-gray;
+  background-color: $white;
   height: 100%;
   cursor: default;
+  -webkit-font-smoothing: antialiased;
 
   // Fix for strange element window offset
   &.pages.edit { overflow: hidden }

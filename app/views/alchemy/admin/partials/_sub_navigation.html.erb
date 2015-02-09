@@ -2,7 +2,9 @@
   <% entry.stringify_keys! %>
   <% if can? *navigate_module(entry) %>
   <div class="subnavi_tab<%= entry_active?(entry) ? ' active' : nil %>">
-    <%= link_to _t(entry['name']), url_for_module_sub_navigation(entry) %>
+    <%= link_to url_for_module_sub_navigation(entry) do %>
+      <label><%= _t(entry['name']) %></label>
+    <% end %>
   </div>
   <% end %>
 <% end %>
