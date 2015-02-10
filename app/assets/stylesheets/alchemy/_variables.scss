@@ -19,6 +19,7 @@ $mono-font-face: Menlo, Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Te
 $default-font-size: 12px;
 $default-font-style: $default-font-size $default-font-face;
 $default-icon-color: $dark-gray;
+$icon-label-color: darken($dark-gray, 10%);
 
 $dialog-header-height: 36px;
 $dialog-overlay-color: $light-gray;
@@ -36,6 +37,7 @@ $main-menu-icon-color: $light-gray;
 $main-menu-width: 80px;
 
 $top-menu-height: 46px;
+$toolbar-background-color: $medium-gray;
 
 $default-padding: 4px;
 $default-margin: $default-padding;

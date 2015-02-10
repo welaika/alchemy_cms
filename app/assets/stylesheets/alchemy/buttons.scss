@@ -231,29 +231,12 @@ button.icon_button {
   }
 
   label {
-    display: none;
-    position: absolute;
-    top: -25px;
-    left: 50%;
-    margin-left: -13px;
-    z-index: 30;
-    background: $dark-gray;
-    color: #fff;
-    padding: $default-padding 2*$default-padding;
-    @extend %rounded-border;
-    line-height: 1;
-    @include box-shadow(0 0 4px $default-border-color);
+    display: block;
+    margin-top: 8px;
     white-space: nowrap;
-
-    &:before {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 8px;
-      border: 5px transparent solid;
-      border-top-color: $dark-gray;
-    }
+    text-align: center;
+    font-weight: bold;
+    color: $icon-label-color;
+    line-height: 1;
   }
-
-  &:hover label { display: block }
 }

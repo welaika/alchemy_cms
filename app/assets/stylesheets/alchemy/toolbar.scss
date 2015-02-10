@@ -86,12 +86,12 @@
 .toolbar_spacer {
   @include inline-block;
   width: 0px;
-  height: 29px;
+  height: 32px;
   border-right-style: solid;
-  border-right-width: 1px;
-  border-right-color: $default-border-color;
-  margin-right: $default-margin;
-  margin-left: $default-margin;
+  border-right-width: 2px;
+  border-right-color: darken($toolbar-background-color, 10%);
+  margin-right: 2*$default-margin;
+  margin-left: 2*$default-margin;
 }
 
 #overlay_toolbar {

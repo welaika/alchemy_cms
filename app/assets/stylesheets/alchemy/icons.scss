@@ -17,7 +17,7 @@
   &.add_page {
     @extend .fi-page-add;
     background: none;
-    color: $green;
+    // color: $green;
   }
 
   &.archive {
@@ -85,7 +85,7 @@
   &.delete_page {
     @extend .fi-page-remove;
     background: none;
-    color: $red;
+    // color: $red;
   }
 
   &.delete-small {
@@ -178,7 +178,7 @@
   &.info {
     @extend .fi-info;
     background: none;
-    color: $blue-icon;
+    // color: $blue-icon;
   }
 
   &.link {
