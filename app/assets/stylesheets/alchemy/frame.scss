@@ -37,7 +37,7 @@
     text-align: center;
     overflow: hidden;
     display: block;
-    padding: 12px 0;
+    padding: 10px 0;
 
     &:hover {
       cursor: pointer;
@@ -48,6 +48,7 @@
     &.active {
       background: $main-menu-active-color;
       cursor: default;
+      padding: 10px 0 8px 0;
 
       .icon {
         color: $green;
