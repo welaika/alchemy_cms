@@ -16,10 +16,10 @@ Alchemy.PreviewWindow =
   resize: ->
     $window = $(window)
     if Alchemy.ElementsWindow.hidden
-      width = $window.width() - 64
+      width = $window.width() - 80
     else
-      width = $window.width() - 466
-    height = $window.height() - 91
+      width = $window.width() - 480
+    height = $window.height() - 111
     width = 240 if width < 240
     @currentWidth = width
     @currentWindow.css

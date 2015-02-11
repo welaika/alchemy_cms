@@ -46,11 +46,11 @@ Alchemy.ElementsWindow =
     @toolbar
 
   resize: ->
-    height = $(window).height() - 91
+    height = $(window).height() - 111
     @element_window.css
       height: height
     @element_area.css
-      height: height - 46
+      height: height - 66
     height
 
   reload: ->
