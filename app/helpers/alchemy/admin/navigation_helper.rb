@@ -60,7 +60,8 @@ module Alchemy
       def main_navigation_css_classes(navigation)
         [
           'main_navi_entry',
-          admin_mainnavi_active?(navigation) ? 'active' : nil
+          admin_mainnavi_active?(navigation) ? 'active' : nil,
+          navigation['sub_navigation'].present? ? 'with-children' : nil
         ].compact.join(' ')
       end
 
@@ -189,7 +190,12 @@ module Alchemy
       # Returns sub navigation entries from given module.
       #
       def module_sub_navigation(alchemy_module)
-        alchemy_module.fetch('sub_navigation', []).map(&:stringify_keys)
+        sub_navigation = alchemy_module['sub_navigation']
+        if sub_navigation
+          sub_navigation.map(&:stringify_keys)
+        else
+          {}
+        end
       end
 
       # Returns nested navigation entries for given module.

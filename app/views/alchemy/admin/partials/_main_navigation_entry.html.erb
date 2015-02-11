@@ -1,13 +1,26 @@
 <% if can? *navigate_module(navigation) %>
-  <%= link_to url_for_module(alchemy_module), class: main_navigation_css_classes(navigation) do %>
-    <% if navigation["image"] %>
-    <%= image_tag(navigation["image"]) %>
-    <% elsif navigation["icon"] %>
-    <span class="module icon <%= navigation["icon"] %>"></span>
-    <% else %>
-    <span class="module icon"></span>
+  <div class="<%= main_navigation_css_classes(navigation) %>">
+    <%= link_to url_for_module(alchemy_module) do %>
+      <% if navigation["image"] %>
+        <%= image_tag(navigation["image"]) %>
+      <% elsif navigation["icon"] %>
+        <span class="module icon <%= navigation["icon"] %>"></span>
+      <% else %>
+        <span class="module icon"></span>
+      <% end %>
+        <br>
+        <label><%= truncate _t(navigation["name"]), length: 10 %></label>
     <% end %>
-    <br>
-    <label><%= truncate _t(navigation["name"]), length: 10 %></label>
-  <% end %>
+    <% if navigation['sub_navigation'].present? %>
+      <ul class="main-nav-children">
+        <% navigation['sub_navigation'].each do |entry| %>
+          <li class="main-nav-child">
+            <%= link_to url_for_module_sub_navigation(entry) do %>
+              <label><%= _t(entry['name']) %></label>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 <% end %>

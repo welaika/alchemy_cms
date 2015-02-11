@@ -4,14 +4,14 @@
   top: 0;
   margin-left: $main-menu-width;
   padding-right: $main-menu-width;
-  z-index: 30;
+  z-index: 20;
   width: 100%;
   @extend .disable-user-select;
 }
 
 #left_menu {
   white-space: nowrap;
-  z-index: 20;
+  z-index: 30;
   height: 100%;
   position: fixed;
   top: 0;
@@ -20,8 +20,10 @@
   overflow: hidden;
   background-color: $main-menu-background-color;
   @extend .disable-user-select;
+  text-align: center;
 
   label {
+    color: $main-menu-label-color;
     display: inline-block;
     font-size: 11px;
     font-weight: bold;
@@ -32,33 +34,51 @@
   padding-bottom: 80px;
 
   .main_navi_entry {
-    color: $light-gray;
     position: relative;
-    text-align: center;
     overflow: hidden;
-    display: block;
-    padding: 10px 0;
+
+    > a {
+      display: block;
+      padding: 10px 0;
+    }
 
     &:hover {
       cursor: pointer;
       text-decoration: none;
       background-color: $main-menu-hover-color;
+
+      .main-nav-children {
+        display: block;
+      }
     }
 
     &.active {
       background: $main-menu-active-color;
       cursor: default;
-      padding: 10px 0 8px 0;
+
+      > a {
+        padding: 10px 0 8px 0;
+      }
 
       .icon {
         color: $green;
       }
 
-      label {
+      > a > label {
         color: $white;
         padding-bottom: 1px;
         border-bottom: 2px solid $green;
       }
+    }
+
+    &.with-children:after {
+      content: '\203A';
+      position: absolute;
+      right: 20px;
+      top: 11px;
+      color: $main-menu-label-color;
+      font-weight: bold;
+      font-size: 15px;
     }
 
     img {
@@ -68,6 +88,38 @@
       @include inline-block;
       margin-bottom: 4px;
       margin-top: 2px;
+    }
+  }
+
+  .main-nav-children {
+    display: none;
+    position: fixed;
+    left: 80px;
+    top: auto;
+    background: $main-menu-background-color;
+    min-width: 100px;
+    margin: -65px 0 0 0;
+    padding: 0;
+    color: $white;
+    list-style-type: none;
+    text-align: left;
+  }
+
+  .main-nav-child {
+    margin: 0;
+    padding: 8px;
+
+    &:hover {
+      background: $main-menu-hover-color;
+    }
+
+    a {
+      display: block;
+      padding: 4px 8px;
+    }
+
+    label {
+      cursor: pointer;
     }
   }
 }
@@ -108,7 +160,6 @@
 
 #menu_logo {
   line-height: 46px;
-  text-align: center;
   background-color: darken($dark-blue, 10%);
 
   img {
@@ -122,7 +173,6 @@
   z-index: 1;
   bottom: 0;
   left: 0;
-  text-align: center;
 
   a {
     display: block;
