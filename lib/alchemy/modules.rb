@@ -36,7 +36,8 @@ module Alchemy
         alchemy_modules.detect { |p| p['name'] == name }
       when Hash
         alchemy_modules.detect do |alchemy_module|
-          definition_from_subnavi(alchemy_module, name.symbolize_keys)
+          definition_from_subnavi(alchemy_module, params.stringify_keys) ||
+            definition_from_mainnavi(alchemy_module, params.stringify_keys)
         end
       else
         raise ArgumentError, "Could not find module definition for #{name}"
@@ -50,26 +51,29 @@ module Alchemy
       alchemy_module.fetch('navigation', {}).stringify_keys
     end
 
-    def definition_from_subnavi(alchemy_module, name)
-      module_navi = alchemy_module_navigation(alchemy_module)
-      subnavi = module_navi['sub_navigation']
-      return if subnavi.nil?
-      subnavi.map(&:stringify_keys).detect do |subnavi|
-        controller_matches?(subnavi, name) && action_matches?(subnavi, name)
+    def definition_from_subnavi(alchemy_module, params)
+      navi = alchemy_module_navigation(alchemy_module)['sub_navigation']
+      return if navi.nil?
+      navi.map(&:stringify_keys).detect do |navi|
+        controller_matches?(navi, params) && action_matches?(navi, params)
       end
     end
 
-    def controller_matches?(subnavi, name)
-      remove_slash(subnavi['controller']) == remove_slash(name[:controller])
+    def definition_from_mainnavi(alchemy_module, params)
+      navi = alchemy_module_navigation(alchemy_module)
+      controller_matches?(navi, params) && action_matches?(navi, params)
     end
 
-    def action_matches?(subnavi, name)
-      subnavi['action'] == name[:action]
+    def controller_matches?(navi, params)
+      remove_slash(navi['controller']) == remove_slash(params['controller'])
+    end
+
+    def action_matches?(navi, params)
+      navi['action'] == params['action']
     end
 
     def remove_slash(name)
       name.gsub(/^\//, '')
     end
-
   end
 end
