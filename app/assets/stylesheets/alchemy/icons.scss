@@ -133,6 +133,7 @@
   &.error {
     @extend .fi-x-circle;
     background: none;
+    color: $red;
   }
 
   &.excel {

@@ -16,10 +16,11 @@ div.message, p.message {
 
   h1, h2 { margin-top: 0 }
 
-  span.icon {
+  .icon {
     position: absolute;
     left: 8px;
     top: 8px;
+    color: inherit;
   }
 
   &.footnote {
