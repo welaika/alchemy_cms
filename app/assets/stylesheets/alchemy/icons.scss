@@ -96,7 +96,7 @@
   }
 
   &.destroy, &.delete, &.tag_delete, &.file_delete {
-    @extend .fi-minus;
+    @extend .fi-x;
     background: none;
     color: $red;
   }
