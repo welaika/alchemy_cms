@@ -1,7 +1,4 @@
 <tr class="<%= cycle('even', 'odd') %>">
-  <td class="icon">
-    <%= render_icon attachment.icon_css_class %>
-  </td>
   <td class="name">
   <% if can?(:show, attachment) && %w(audio image video flash pdf text).include?(attachment.icon_css_class) %>
     <%= link_to_dialog(

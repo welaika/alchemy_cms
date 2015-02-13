@@ -25,7 +25,6 @@
   <table class="list" id="tag_list">
     <thead>
       <tr>
-        <th class="icon"></th>
         <th class="name"><%= sortable_column(ActsAsTaggableOn::Tag.human_attribute_name(:name), column: :name) %></th>
         <th class="count"><%= ActsAsTaggableOn::Tag.human_attribute_name(:taggings_types) %></th>
         <th class="count"><%= sortable_column(ActsAsTaggableOn::Tag.human_attribute_name(:taggings_count), column: :taggings_count) %></th>

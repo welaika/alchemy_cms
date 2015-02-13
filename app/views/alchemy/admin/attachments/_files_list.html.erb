@@ -13,7 +13,6 @@
   <% unless @attachments.blank? %>
   <thead>
     <tr>
-      <th class="icon"></th>
       <th class="name">
         <%= sortable_column(Alchemy::Attachment.human_attribute_name('name'), column: :name) %>
       </th>
