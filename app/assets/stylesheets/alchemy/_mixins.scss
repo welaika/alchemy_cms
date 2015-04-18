@@ -26,7 +26,6 @@
 }
 
 @mixin form-label {
-  @extend .border-box-sizing;
   width: $form-left-width;
   padding-right: 2*$default-padding;
   padding-top: $default-padding + 1;
@@ -57,7 +56,6 @@
   min-height: 29px;
   background: white;
   @extend %rounded-border;
-  @extend .border-box-sizing;
 }
 
 @mixin animate-left {
