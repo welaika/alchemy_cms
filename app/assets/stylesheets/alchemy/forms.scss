@@ -117,11 +117,9 @@ form {
   .inline-input {
     @extend .clearfix;
     margin: 0 -1*$default-margin;
-    box-sizing: border-box;
 
     .left-column, .right-column {
       padding: 0 $default-padding;
-      box-sizing: border-box;
     }
 
     .left-column {

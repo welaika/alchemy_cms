@@ -112,7 +112,6 @@
 }
 
 .alchemy-dialog-header {
-  box-sizing: border-box;
   position: relative;
   height: $dialog-header-height;
   padding: 0 2*$default-padding;
@@ -154,7 +153,6 @@
 }
 
 .alchemy-dialog-body {
-  box-sizing: border-box;
   position: relative;
   color: $text-color;
 
@@ -193,7 +191,6 @@
 }
 
 .alchemy-dialog-buttons {
-  box-sizing: border-box;
   float: left;
   clear: both;
   width: 100%;

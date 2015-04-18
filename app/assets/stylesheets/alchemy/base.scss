@@ -166,10 +166,6 @@ kbd {
   user-select: none;
 }
 
-.border-box-sizing {
-  box-sizing: border-box;
-}
-
 span.updated_at {
   float: right;
 }
@@ -575,7 +571,6 @@ div.browse {
 }
 
 #alchemy_preview_window {
-  box-sizing: border-box;
   position: absolute;
   left: $main-menu-width;
   top: 111px;

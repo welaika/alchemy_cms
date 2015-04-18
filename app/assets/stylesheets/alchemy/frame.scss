@@ -1,5 +1,4 @@
 #top_menu {
-  box-sizing: border-box;
   position: fixed;
   top: 0;
   margin-left: $main-menu-width;
@@ -192,7 +191,6 @@
 }
 
 #main_content {
-  box-sizing: border-box;
   background-color: $light-gray;
   padding: 127px 16px 8px $main-menu-width+16px;
   z-index: 0;
