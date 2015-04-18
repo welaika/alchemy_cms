@@ -53,33 +53,3 @@
   background-color: lighten($error_background_color, 8%);
   box-shadow: inset 1px 1px 4px rgba($error_border_color, 0.5);
 }
-
-%blue-focus-style {
-  @include default-focus-style;
-}
-
-%default-input-style {
-  $border-inset-color: lighten($default-border-color, 20%);
-  @extend %rounded-border;
-  box-shadow: inset 0px 1px 1px $medium-gray;
-  font: $default-font-style;
-  padding: 1px 2*$default-padding;
-  margin: $default-form-field-margin;
-  background: rgba(#fff, 0.9);
-  border-top: 1px solid $default-border-color;
-  border-left: 1px solid $default-border-color;
-  border-bottom: 1px solid $border-inset-color;
-  border-right: 1px solid $border-inset-color;
-  width: 218px;
-  font-size: 12px;
-  line-height: 12px;
-  height: 29px;
-  transition:
-    box-shadow 0.25s ease-in-out,
-    background-color 0.25s ease-in-out,
-    border 0.25s ease-in-out;
-
-  &:focus {
-    @extend %blue-focus-style;
-  }
-}

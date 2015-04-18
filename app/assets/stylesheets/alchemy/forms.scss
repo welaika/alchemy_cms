@@ -20,10 +20,6 @@ form {
     @include form-heading;
   }
 
-  .control-label {
-    @include form-label;
-  }
-
   .input {
     padding: $default-padding 0;
     @extend .clearfix;
@@ -157,6 +153,10 @@ form {
     padding: $default-padding 0;
     text-align: right;
   }
+
+  .help-block {
+    padding: 2*$default-padding;
+  }
 }
 
 textarea#essence_picture_caption {
@@ -171,14 +171,6 @@ textarea#essence_picture_caption {
 
   .value {
     overflow: hidden;
-
-    label {
-      @include form-label;
-    }
-
-    p {
-      @include form-value-display;
-    }
   }
 }
 
@@ -188,4 +180,12 @@ textarea#essence_picture_caption {
   .select2-container {
     width: 100%;
   }
+}
+
+.foot_note, form .input .hint {
+  font-size: $font-size-small;
+  padding: 2*$default-padding;
+  @extend %rounded-border;
+  display: block;
+  clear: both;
 }

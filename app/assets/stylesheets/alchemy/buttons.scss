@@ -36,10 +36,6 @@ button, input[type="submit"], a.button, input.button {
     }
   }
 
-  &:focus {
-    @extend %blue-focus-style;
-  }
-
   &.disabled {
     line-height: 13px;
     height: 29px;
@@ -155,10 +151,6 @@ button, input[type="submit"], a.button, input.button {
   &.linked {
     padding: 3px;
     border-color: $default-border-color;
-  }
-
-  &:focus {
-    @extend %blue-focus-style;
   }
 }
 

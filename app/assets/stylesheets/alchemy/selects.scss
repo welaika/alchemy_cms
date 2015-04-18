@@ -72,27 +72,12 @@ select {
     &.medium {
       width: 90px;
     }
-
-    &.select2-container-active {
-
-      .select2-choice, .select2-choices {
-        @extend %blue-focus-style;
-      }
-    }
   }
 
   &.select2-container-multi {
     margin-top: 0 !important;
 
-    &.select2-container-active {
-
-      .select2-choices {
-        @extend %blue-focus-style;
-      }
-    }
-
     .select2-choices {
-      @extend %default-input-style;
       padding: 0 2px;
       width: 100%;
 

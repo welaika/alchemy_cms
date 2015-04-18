@@ -81,24 +81,6 @@ p {
   white-space: normal;
 }
 
-a {
-  color: $text-color;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  &:focus {
-    @extend %blue-focus-style;
-    color: black;
-  }
-
-  img {
-    border: none;
-  }
-}
-
 form {
   margin-bottom: 0;
 }
@@ -406,17 +388,6 @@ div#images {
   margin-top: 16px;
   margin-bottom: 8px;
   overflow: visible;
-}
-
-.foot_note, form .input .hint {
-  font-size: 10px;
-  line-height: 1.5em;
-  padding: $default-padding;
-  background-color: $light_yellow;
-  border: 1px solid $medium-gray;
-  @extend %rounded-border;
-  display: block;
-  clear: both;
 }
 
 #all_files td.name a {

@@ -349,7 +349,6 @@ div#pictures_page_list {
   h3 { padding: 0 $default-padding }
 
   ul {
-    @include form-value-display;
     list-style-type: none;
   }
 
