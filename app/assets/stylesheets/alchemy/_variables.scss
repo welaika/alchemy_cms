@@ -37,7 +37,7 @@ $main-menu-icon-color: $light-gray;
 $main-menu-width: 80px;
 
 $top-menu-height: 46px;
-$toolbar-background-color: $medium-gray;
+$toolbar-background-color: $white;
 
 $default-padding: 4px;
 $default-margin: $default-padding;
@@ -107,7 +107,7 @@ $brand-danger:          #d9534f;
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-$body-bg:               #fff;
+$body-bg:               $gray-lighter;
 //** Global text color on `<body>`.
 $text-color:            $gray-dark;
 
@@ -123,7 +123,7 @@ $link-hover-decoration: underline;
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-sans-serif:  "Open Sans", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
