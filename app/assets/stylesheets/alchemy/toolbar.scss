@@ -1,6 +1,7 @@
 #toolbar {
   z-index: 10;
-  @extend %gradiated-toolbar;
+  background: $toolbar-background-color;
+  padding: 8px 4px;
   margin-right: 0px;
   position: relative;
 
@@ -37,10 +38,6 @@
       text-decoration: none;
       background-position: 0 -21px;
     }
-  }
-
-  .js_filter_field {
-    border-radius: 15px;
   }
 
   .js_filter_field_box {
@@ -95,7 +92,8 @@
 }
 
 #overlay_toolbar {
-  @extend %gradiated-toolbar;
+  background: $toolbar-background-color;
+  padding: 8px 4px;
   border-bottom: $default-border;
 
   a.button {
