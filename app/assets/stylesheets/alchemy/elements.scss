@@ -1,5 +1,5 @@
 #alchemy_elements_window {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   position: absolute;
   right: 0;
   top: 111px;
@@ -10,7 +10,7 @@
 }
 
 #element_area {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   overflow-x: hidden;
   overflow-y: auto;
 
@@ -130,7 +130,7 @@ span.preview_text_element_name {
   margin-bottom: 2*$default-margin;
 
   &.not-draggable {
-    @include opacity(0.5);
+    opacity: 0.5;
   }
 
   &.dirty {
@@ -143,7 +143,7 @@ span.preview_text_element_name {
 
   &.selected {
     border-color: $blue;
-    @include box-shadow(0 0 4px $blue);
+    box-shadow: 0 0 4px $blue;
   }
 
   form {
@@ -316,7 +316,7 @@ div#cells {
     position: absolute;
     bottom: 4px;
     right: 28px;
-    @include border-radius(0);
+    border-radius: 0;
 
     &.unlink {
       right: 0;
@@ -387,7 +387,7 @@ div#cells {
     }
 
     &.disabled {
-      @include opacity(0.3);
+      opacity: 0.3;
       cursor: default;
     }
 
@@ -401,7 +401,7 @@ div#cells {
 
 div.content_editor.essence_date {
   float: none;
-  @include inline-block;
+  display: inline-block;
   vertical-align: top;
 
   input.date {
@@ -598,7 +598,7 @@ div.content_editor {
   }
 
   &.display_inline {
-    @include inline-block;
+    display: inline-block;
     margin-right: 4px;
     vertical-align: top;
 
@@ -630,7 +630,7 @@ div.content_editor {
     }
 
     &.inline {
-      @include inline-block;
+      display: inline-block;
       min-width: 90px;
       margin-right: 4px;
     }
@@ -668,7 +668,7 @@ div.content_editor {
   }
 
   &:hover label a.icon_button.small {
-    @include inline-block;
+    display: inline-block;
   }
 
   select.essence_editor_select {
@@ -700,7 +700,7 @@ div.content_editor {
 
   &.essence_date {
     float: none;
-    @include inline-block;
+    display: inline-block;
     vertical-align: top;
 
     input.date {
@@ -711,7 +711,7 @@ div.content_editor {
   &.essence_picture_editor {
     float: none;
     height: auto;
-    @include inline-block;
+    display: inline-block;
   }
 }
 

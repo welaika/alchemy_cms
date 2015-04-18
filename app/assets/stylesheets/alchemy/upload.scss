@@ -33,7 +33,7 @@ a#uploadswitcher, a.underline {
 .overall-upload {
   display: none;
   overflow: hidden;
-  @include border-radius($default-border-radius);
+  border-radius: $default-border-radius;
   background-color: $medium-gray;
   border: $default-border;
   margin-bottom: 2*$default-margin;

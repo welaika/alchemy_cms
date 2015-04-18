@@ -1,5 +1,5 @@
 #top_menu {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   position: fixed;
   top: 0;
   margin-left: $main-menu-width;
@@ -85,7 +85,7 @@
       border-style: none;
       height: 24px;
       width: 24px;
-      @include inline-block;
+      display: inline-block;
       margin-bottom: 4px;
       margin-top: 2px;
     }
@@ -192,7 +192,7 @@
 }
 
 #main_content {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   background-color: $light-gray;
   padding: 127px 16px 8px $main-menu-width+16px;
   z-index: 0;
@@ -239,7 +239,7 @@
   position: relative;
 
   a {
-    @include inline-block;
+    display: inline-block;
     color: inherit;
     font-weight: bold;
 
@@ -274,7 +274,7 @@
   .page_language {
     float: none;
     position: relative;
-    @include inline-block;
+    display: inline-block;
     bottom: 3px;
     color: #3265b1;
     @extend %rounded-border;

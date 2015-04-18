@@ -116,7 +116,7 @@ ul {
 hr {
   border: 0 none;
   border-bottom: 1px solid;
-  @include opacity(0.5);
+  opacity: 0.5;
 }
 
 .float_right { float: right }
@@ -143,31 +143,31 @@ kbd {
 }
 
 .top-rounded-border {
-  @include border-top-radius($default-border-radius);
+  border-radius: $default-border-radius $default-border-radius 0 0;
 }
 
 .left-rounded-border {
-  @include border-left-radius($default-border-radius);
+  border-radius: 0 0 $default-border-radius $default-border-radius;
 }
 
 .right-rounded-border {
-  @include border-right-radius($default-border-radius);
+  border-radius: $default-border-radius 0 $default-border-radius 0;
 }
 
 .bottom-rounded-border {
-  @include border-bottom-radius($default-border-radius);
+  border-radius: 0 $default-border-radius $default-border-radius 0;
 }
 
 .bottom-left-rounded-border {
-  @include border-bottom-left-radius($default-border-radius);
+  border-radius: 0 $default-border-radius 0 0;
 }
 
 .disable-user-select {
-  @include user-select(none);
+  user-select: none;
 }
 
 .border-box-sizing {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
 }
 
 span.updated_at {
@@ -575,7 +575,7 @@ div.browse {
 }
 
 #alchemy_preview_window {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   position: absolute;
   left: $main-menu-width;
   top: 111px;
@@ -583,7 +583,7 @@ div.browse {
   height: auto;
   border: 0 none;
   background: #fff;
-  @include transition(200ms ease-in-out);
+  transition: all 200ms ease-in-out;
 }
 
 #error_trace {

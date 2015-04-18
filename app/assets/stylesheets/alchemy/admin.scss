@@ -4,6 +4,9 @@
  *= require_self
  */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 @import "alchemy/defaults";
 @import "alchemy/archive";
 @import "alchemy/base";

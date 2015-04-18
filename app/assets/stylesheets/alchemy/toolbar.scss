@@ -8,7 +8,7 @@
 
     form {
       margin: 0;
-      @include inline-block;
+      display: inline-block;
       line-height: 5px;
 
       select { margin: 0 }
@@ -40,7 +40,7 @@
   }
 
   .js_filter_field {
-    @include border-radius(15px);
+    border-radius: 15px;
   }
 
   .js_filter_field_box {
@@ -84,7 +84,7 @@
 }
 
 .toolbar_spacer {
-  @include inline-block;
+  display: inline-block;
   width: 0px;
   height: 32px;
   border-right-style: solid;
@@ -130,7 +130,7 @@
 
 .button_group {
   position: relative;
-  @include inline-block(top);
+  display: inline-block;
   margin: 0 2*$default-margin;
 
   &:hover label {

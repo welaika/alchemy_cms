@@ -21,16 +21,16 @@
   line-height: normal;
   font-weight: normal;
   text-align: left;
-  @include box-sizing(content-box);
+  box-sizing: content-box;
   direction: ltr;
 }
 
 .mce-widget button {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
 }
 
 .mce-container *[unselectable] {
-  @include user-select(none);
+  user-select: none;
 }
 
 .mce-container ::-webkit-scrollbar {
@@ -85,7 +85,7 @@ div.mce-fullscreen {
   visibility: visible!important;
   position: relative;
   display: block;
-  @include border-radius($default-border-radius);
+  border-radius: $default-border-radius;
 }
 
 .mce-wordcount {
@@ -99,7 +99,7 @@ div.mce-edit-area {
   background: #FFF;
   filter: none;
   border-top: 0;
-  @include border-radius($default-border-radius);
+  border-radius: $default-border-radius;
 }
 
 .mce-statusbar {
@@ -248,7 +248,7 @@ div.mce-tinymce-inline {
 .mce-panel {
   border: 0 solid $default-border-color;
   background-color: $medium-gray;
-  @include box-sizing(border-box);
+  box-sizing: border-box;
 }
 
 .mce-toolbar-grp {
@@ -283,8 +283,8 @@ div.mce-tinymce-inline {
   &.mce-popover {
     filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
     background: transparent;
-    @include border-radius($default-border-radius);
-    @include box-shadow(0 5px 10px rgba(0,0,0,0.2));
+    border-radius: $default-border-radius;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
     top: 0;
     left: 0;
     background: #fff;
@@ -369,7 +369,7 @@ div.mce-fullscreen {
 }
 
 .mce-window {
-  @include border-radius($default-border-radius);
+  border-radius: $default-border-radius;
   border: $default-border;
   background-color: $light-gray;
   color: $text-color;
@@ -389,7 +389,7 @@ div.mce-fullscreen {
   padding: 8px 12px;
   background-color: $light-blue;
   position: relative;
-  @include border-top-radius($default-border-radius);
+  border-radius: $default-border-radius 0 0 $default-border-radius;
 
   .mce-title {
     line-height: 20px;
@@ -418,8 +418,8 @@ div.mce-fullscreen {
     cursor: pointer;
     height: 18px;
     overflow: hidden;
-    @include border-radius(0);
-    @include box-shadow(none);
+    border-radius: 0;
+    box-shadow: none;
 
     &:hover {
       color: #000;
@@ -436,10 +436,10 @@ div.mce-fullscreen {
   display: block;
   background-color: transparent;
   border-top: 0 none;
-  @include border-bottom-radius($default-border-radius);
+  border-radius: 0 $default-border-radius $default-border-radius 0;
 
   .mce-btn {
-    @include border-radius($default-border-radius);
+    border-radius: $default-border-radius;
 
     button { padding: 0.5em 1.5em; }
   }
@@ -451,7 +451,7 @@ div.mce-fullscreen {
 }
 
 .mce-window.mce-fullscreen,.mce-window.mce-fullscreen .mce-foot {
-  @include border-radius($default-border-radius);
+  border-radius: $default-border-radius;
 }
 
 .mce-rtl .mce-window-head .mce-close {
@@ -500,7 +500,7 @@ body .mce-abs-layout-item,.mce-abs-end {
   padding: $default-padding 2*$default-padding;
   text-align: center;
   white-space: normal;
-  @include box-shadow(0 0 4px $default-border-color);
+  box-shadow: 0 0 4px $default-border-color;
   @extend %rounded-border;
 }
 
@@ -616,15 +616,16 @@ body .mce-abs-layout-item,.mce-abs-end {
   display: inline-block;
   *display: inline;
   *zoom: 1;
-  @include box-shadow(inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05));
-  @include background(linear-gradient(color-stops($sb-base-color, darken($sb-base-color, 10%))));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+
+  background: linear-gradient(color-stops($sb-base-color, darken($sb-base-color, 10%)));
 
   &:hover, &:focus {
     color: #333;
-    @include background(linear-gradient(color-stops(darken($sb-base-color, 10%), darken($sb-base-color, 20%))));
+    background: linear-gradient(color-stops(darken($sb-base-color, 10%), darken($sb-base-color, 20%)));
 
     button {
-      @include background(inherit);
+      background: inherit;
     }
   }
 
@@ -638,10 +639,10 @@ body .mce-abs-layout-item,.mce-abs-end {
     text-align: center;
     overflow: visible;
     -webkit-appearance: none;
-    @include border-radius(inherit);
+    border-radius: inherit;
 
     &:focus {
-      @include box-shadow(none);
+      box-shadow: none;
       border: 0 none;
       background: none;
     }
@@ -658,15 +659,15 @@ body .mce-abs-layout-item,.mce-abs-end {
 
   &.mce-disabled button, &.mce-disabled:hover button {
     cursor: default;
-    @include box-shadow(none);
+    box-shadow: none;
     opacity: .4;
     filter: alpha(opacity=40);
     zoom: 1;
   }
 
   &.mce-active, &.mce-active:hover {
-    @include background(linear-gradient(color-stops(darken($sb-base-color, 15%), darken($sb-base-color, 25%))));
-    @include box-shadow(inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05));
+    background: linear-gradient(color-stops(darken($sb-base-color, 15%), darken($sb-base-color, 25%)));
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
 
     button i { color: #000; }
   }
@@ -692,10 +693,10 @@ body .mce-abs-layout-item,.mce-abs-end {
   // color: #fff;
   // border: 1px solid #b1b1b1;
   // border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25) rgba(0,0,0,0.25);
-  // @include background(linear-gradient(color-stops(#0c0, darken(#0c0, 10%))));
+  // background: linear-gradient(color-stops(#0c0, darken(#0c0, 10%)));
 
   // &:hover, &:focus {
-  //   @include background(linear-gradient(color-stops(darken(#0c0, 10%), darken(#0c0, 20%))));
+  //   background: linear-gradient(color-stops(darken(#0c0, 10%), darken(#0c0, 20%)));
   // }
 
   // &.mce-disabled button, &.mce-disabled:hover button {
@@ -733,7 +734,7 @@ body .mce-abs-layout-item,.mce-abs-end {
   padding: 9px 14px;
   font-size: 16px;
   line-height: normal;
-  @include border-radius($default-border-radius);
+  border-radius: $default-border-radius;
 }
 
 .mce-btn-large i {
@@ -791,23 +792,23 @@ body .mce-abs-layout-item,.mce-abs-end {
 .mce-btn-group .mce-btn {
   border-width: 1px 0 1px 0;
   margin: 0;
-  @include border-radius(0);
+  border-radius: 0;
 }
 
 .mce-btn-group .mce-first {
   border-left: 1px solid #b1b1b1;
   border-left: 1px solid rgba(0,0,0,0.25);
-  @include border-left-radius($default-border-radius);
+  border-radius: 0 0 $default-border-radius $default-border-radius;
 }
 
 .mce-btn-group .mce-last {
   border-right: 1px solid #b1b1b1;
   border-right: 1px solid rgba(0,0,0,0.1);
-  @include border-right-radius($default-border-radius);
+  border-radius: $default-border-radius $default-border-radius 0 0;
 }
 
 .mce-btn-group .mce-first.mce-last {
-  @include border-radius($default-border-radius);
+  border-radius: $default-border-radius;
 }
 
 .mce-btn-group .mce-btn.mce-flow-layout-item {
@@ -821,8 +822,8 @@ body .mce-abs-layout-item,.mce-abs-end {
 i.mce-i-checkbox {
   margin: 0 3px 0 0;
   border: 1px solid #c5c5c5;
-  @include border-radius($default-border-radius);
-  @include box-shadow(inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05));
+  border-radius: $default-border-radius;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
   background-color: #f0f0f0;
   background-image: -moz-linear-gradient(top,#fff,#d9d9d9);
   background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#d9d9d9));
@@ -848,7 +849,7 @@ i.mce-i-checkbox {
 
 .mce-checkbox:focus i.mce-i-checkbox,.mce-checkbox.mce-focus i.mce-i-checkbox {
   border: 1px solid rgba(82,168,236,0.8);
-  @include box-shadow(inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.65));
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.65);
 }
 
 .mce-checkbox.mce-disabled .mce-label,.mce-checkbox.mce-disabled i.mce-i-checkbox {
@@ -943,8 +944,8 @@ i.mce-i-checkbox {
   display: inline-block;
   *display: inline;
   *zoom: 1;
-  @include border-radius($default-border-radius);
-  @include box-shadow(inset 0 1px 1px rgba(0,0,0,0.075));
+  border-radius: $default-border-radius;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
   *height: 32px;
 }
 
@@ -959,12 +960,12 @@ i.mce-i-checkbox {
 }
 
 .mce-combobox.mce-has-open input {
-  @include border-left-radius($default-border-radius);
+  border-radius: 0 0 $default-border-radius $default-border-radius;
 }
 
 .mce-combobox .mce-btn {
   border-left: 0;
-  @include border-right-radius($default-border-radius);
+  border-radius: $default-border-radius $default-border-radius 0 0;
 }
 
 .mce-combobox button {
@@ -1030,7 +1031,7 @@ i.mce-i-checkbox {
 
 .mce-fieldset {
   border: 0 solid $default-border-color;
-  @include border-radius($default-border-radius);
+  border-radius: $default-border-radius;
 }
 
 .mce-fieldset>.mce-container-body {
@@ -1122,7 +1123,7 @@ i.mce-i-checkbox {
 .mce-menubar .mce-menubtn {
   border-color: transparent;
   background: transparent;
-  @include border-radius(0);
+  border-radius: 0;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -1355,8 +1356,8 @@ div.mce-menu .mce-menu-item-sep,.mce-menu-item-sep:hover {
   border: 1px solid #989898;
   border: 1px solid rgba(0,0,0,0.2);
   z-index: 1002;
-  @include border-radius($default-border-radius);
-  @include box-shadow(0 5px 10px rgba(0,0,0,0.2));
+  border-radius: $default-border-radius;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
   max-height: 400px;
   overflow: auto;
   overflow-x: hidden;
@@ -1499,8 +1500,8 @@ i.mce-i-resize {
 .mce-textbox {
   background: #fff;
   border: 1px solid #c5c5c5;
-  @include border-radius($default-border-radius);
-  @include box-shadow(inset 0 1px 1px rgba(0,0,0,0.075));
+  border-radius: $default-border-radius;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
   display: inline-block;
   -webkit-transition: border linear .2s,box-shadow linear .2s;
   transition: border linear .2s,box-shadow linear .2s;

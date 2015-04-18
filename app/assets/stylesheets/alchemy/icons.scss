@@ -1,5 +1,5 @@
 .icon {
-  @include inline-block;
+  display: inline-block;
   background: image-url('alchemy/icons.png') no-repeat;
   width: $icon-size;
   height: $icon-size;
@@ -267,10 +267,6 @@
   &.trash {
     @extend .fi-trash;
     background: none;
-
-    &.full {
-      @include text-shadow();
-    }
   }
 
   &.unlink {
