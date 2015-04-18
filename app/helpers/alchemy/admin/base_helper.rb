@@ -370,7 +370,7 @@ module Alchemy
       #
       # @option html_options [String] :type ('date')
       #   The type of text field
-      # @option html_options [String] :class ('thin_border date')
+      # @option html_options [String] :class ('date')
       #   CSS classes of the input field
       # @option html_options [String] :value (object.send(method.to_sym).nil? ? nil : l(object.send(method.to_sym), :format => :datepicker))
       #   The value the input displays

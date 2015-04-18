@@ -2,32 +2,23 @@ textarea,
 input[type="url"],
 input[type="text"],
 input[type="email"],
-input[type="password"],
-.thin_border,
-.input_field {
-  @extend %default-input-style;
+input[type="password"] {
+  @extend .form-control;
 
   &.dirty {
     background-color: #fff8df;
   }
 }
 
-textarea {
-  height: auto;
-  padding: 4px 8px !important;
-  line-height: 19px !important;
-}
-
 input#search_input_field {
   width: 204px;
   text-align: left;
-  border-radius: 21px;
   padding: 3px 16px 3px 28px;
   margin: 0;
-  height: 29px;
 }
 
-div.search_field span.icon, div.js_filter_field_box span.icon {
+div.search_field span.icon,
+div.js_filter_field_box span.icon {
   position: absolute;
   left: 8px;
   top: 8px;
@@ -36,14 +27,13 @@ div.search_field span.icon, div.js_filter_field_box span.icon {
 .js_filter_field_box {
   position: absolute;
   right: 4px;
-  top: 8px;
+  top: 50%;
+  transform: translateY(-50%);
 
   .js_filter_field {
     width: 220px;
     text-align: left;
-    border-radius: $default-border-radius;
     padding: 3px 24px 3px 28px;
-    height: 29px;
     margin: 0;
   }
 
@@ -81,9 +71,4 @@ fieldset {
     text-decoration: none;
     margin-bottom: 0.5em;
   }
-}
-
-::-webkit-input-placeholder {
-  line-height: 1.5;
-  color: $default-border-color;
 }

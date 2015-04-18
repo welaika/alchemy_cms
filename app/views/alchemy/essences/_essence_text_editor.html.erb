@@ -4,7 +4,7 @@
     <%= text_field_tag(
       content.form_field_name,
       content.ingredient,
-      class: ["thin_border #{content.settings[:linkable] ? ' text_with_icon' : ''}", html_options[:class]].join(' '),
+      class: ["#{content.settings[:linkable] ? ' text_with_icon' : ''}", html_options[:class]].join(' '),
       style: html_options[:style]
     ) %>
     <% if content.settings[:linkable] %>

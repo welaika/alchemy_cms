@@ -13,7 +13,6 @@
   <%= render_icon('search') %>
     <%= text_field_tag :query,
       params['query'],
-      class: 'thin_border',
       id: 'search_input_field',
       placeholder: _t(:search) %>
     <%= link_to '', url_for({
