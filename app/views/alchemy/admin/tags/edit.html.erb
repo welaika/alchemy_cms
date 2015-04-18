@@ -1,5 +1,5 @@
 <%= alchemy_form_for @tag, as: 'tag', url: alchemy.admin_tag_path(@tag), html: {method: 'patch'} do |f| %>
-  <%= render_message :info do %>
+  <%= render_message do %>
     <%= _t(:you_can_rename_this_tag) %>
   <% end %>
   <%= f.input :name %>
@@ -7,7 +7,7 @@
 <% end %>
 <% if @tags.any? -%>
   <%= alchemy_form_for @tag, as: 'tag', url: alchemy.admin_tag_path(@tag), html: {method: 'patch'} do |f| %>
-    <%= render_message :info do %>
+    <%= render_message do %>
       <%= _t(:or_replace_it_with_an_existing_tag) %>
     <% end %>
     <div class="input tags">

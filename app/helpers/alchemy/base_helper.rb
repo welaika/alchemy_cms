@@ -48,9 +48,9 @@ module Alchemy
     #
     def render_message(type = :info, msg = nil, &blk)
       if block_given?
-        content_tag :div, render_icon(type) + capture(&blk), :class => "#{type} message"
+        content_tag :div, render_icon(type) + capture(&blk), class: "alert-#{type} alert"
       else
-        content_tag :div, render_icon(type) + msg, :class => "#{type} message"
+        content_tag :div, render_icon(type) + msg, class: "alert-#{type} alert"
       end
     end
 

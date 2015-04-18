@@ -1,7 +1,7 @@
 <%= alchemy_form_for [:admin, @legacy_page_url ||= @page.legacy_urls.build],
   id: 'new_legacy_page_url' do |f| %>
   <% if @legacy_page_url.errors.any? %>
-    <%= render_message :error do %>
+    <%= render_message :danger do %>
       <%= @legacy_page_url.errors.full_messages.join %>
     <% end %>
   <% end %>
