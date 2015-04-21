@@ -12,6 +12,15 @@ class window.Alchemy.Dialog
     ready: ->
     closed: ->
 
+  TEMPLATE:
+    container: '<div class="modal fade" />'
+    dialog: '<div class="modal-dialog" />'
+    content: '<div class="modal-content" />'
+    header: '<div class="modal-header" />'
+    title: '<h4 class="modal-title" />'
+    close_button: '<button class="close" data-dismiss="modal">&times;</button>'
+    body: '<div class="modal-body" />'
+
   # Arguments:
   #  - url: The url to load the content from via ajax
   #  - options: A object holding options
@@ -29,33 +38,35 @@ class window.Alchemy.Dialog
 
   # Opens the Dialog and loads the content via ajax.
   open: ->
-    @dialog.trigger 'Alchemy.DialogOpen'
+    @dialog_container.modal('show')
+    # @dialog.trigger 'Alchemy.DialogOpen'
     @bind_close_events()
-    window.requestAnimationFrame =>
-      @dialog_container.addClass('open')
-      @overlay.addClass('open') if @overlay?
-    @dialog.draggable
-      iframeFix: true
-      handle: '.alchemy-dialog-title'
-      containment: 'parent'
-    @$body.addClass('prevent-scrolling')
+    # window.requestAnimationFrame =>
+    #   @dialog_container.addClass('open')
+    #   @overlay.addClass('open') if @overlay?
+    # @dialog.draggable
+    #   iframeFix: true
+    #   handle: '.alchemy-dialog-title'
+    #   containment: 'parent'
+    # @$body.addClass('prevent-scrolling')
     Alchemy.currentDialogs.push(this)
     @load()
     true
 
   # Closes the Dialog and removes it from the DOM
   close: ->
-    @$document.off 'keydown'
-    @dialog_container.removeClass('open')
-    @overlay.removeClass('open') if @overlay?
-    @$document.on 'webkitTransitionEnd transitionend oTransitionEnd', =>
-      @$document.off 'webkitTransitionEnd transitionend oTransitionEnd'
-      @dialog_container.remove()
-      @overlay.remove() if @overlay?
-      @$body.removeClass('prevent-scrolling')
-      Alchemy.currentDialogs.pop(this)
-      if @options.closed?
-        @options.closed()
+    @dialog_container.modal('hide')
+    # @$document.off 'keydown'
+    # @dialog_container.removeClass('open')
+    # @overlay.removeClass('open') if @overlay?
+    # @$document.on 'webkitTransitionEnd transitionend oTransitionEnd', =>
+    #   @$document.off 'webkitTransitionEnd transitionend oTransitionEnd'
+    #   @dialog_container.remove()
+    #   @overlay.remove() if @overlay?
+    #   @$body.removeClass('prevent-scrolling')
+    #   Alchemy.currentDialogs.pop(this)
+    #   if @options.closed?
+    #     @options.closed()
     true
 
   # Loads the content via ajax and replaces the Dialog body with server response.
@@ -137,46 +148,43 @@ class window.Alchemy.Dialog
     $errorDiv.append "<p>#{error_body}</p>"
     @dialog_body.html $errorDiv
 
-  # Binds close events on:
-  # - Close button
-  # - Overlay (if the Dialog is a modal)
-  # - ESC Key
+  # Binds BS close events
   bind_close_events: ->
-    @close_button.click =>
-      @close()
-      false
-    @dialog_container.addClass('closable').click (e) =>
-      return true if e.target != @dialog_container.get(0)
-      @close()
-      false
-    @$document.keydown (e) =>
-      if e.which == 27
-        @close()
-        false
-      else
-        true
+    @dialog_container.on 'hidden.bs.modal', =>
+      @dialog_container.remove()
+    return
+    # @close_button.click =>
+    #   @close()
+    #   false
+    # @dialog_container.addClass('closable').click (e) =>
+    #   return true if e.target != @dialog_container.get(0)
+    #   @close()
+    #   false
+    # @$document.keydown (e) =>
+    #   if e.which == 27
+    #     @close()
+    #     false
+    #   else
+    #     true
 
   # Builds the html structure of the Dialog
   build: ->
-    @dialog_container = $('<div class="alchemy-dialog-container" />')
-    @dialog = $('<div class="alchemy-dialog" />')
-    @dialog_body = $('<div class="alchemy-dialog-body" />')
-    @dialog_header = $('<div class="alchemy-dialog-header" />')
-    @dialog_title = $('<div class="alchemy-dialog-title" />')
-    @close_button = $('<a class="alchemy-dialog-close"><span class="icon close small"></span></a>')
+    @dialog_container = $(@TEMPLATE.container)
+    @dialog           = $(@TEMPLATE.dialog)
+    @dialog_content   = $(@TEMPLATE.content)
+    @dialog_header    = $(@TEMPLATE.header)
+    @dialog_title     = $(@TEMPLATE.title)
+    @close_button     = $(@TEMPLATE.close_button)
+    @dialog_body      = $(@TEMPLATE.body)
+
     @dialog_title.text(@options.title)
     @dialog_header.append(@dialog_title)
     @dialog_header.append(@close_button)
-    @dialog.append(@dialog_header)
-    @dialog.append(@dialog_body)
+    @dialog_content.append(@dialog_header)
+    @dialog_content.append(@dialog_body)
+    @dialog.append(@dialog_content)
     @dialog_container.append(@dialog)
-    @dialog.addClass('modal') if @options.modal
-    @dialog_body.addClass('padded') if @options.padding
-    if @options.modal
-      @overlay = $('<div class="alchemy-dialog-overlay" />')
-      @$body.append(@overlay)
     @$body.append(@dialog_container)
-    @resize()
     @dialog
 
   # Sets the correct size of the dialog
