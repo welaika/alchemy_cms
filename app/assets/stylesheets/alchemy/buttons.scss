@@ -1,5 +1,5 @@
 button, input[type="submit"], a.button, input.button {
-  @include button-defaults;
+  @extend .btn;
 
   &.small {
     padding: 2px 2*$default-padding;
