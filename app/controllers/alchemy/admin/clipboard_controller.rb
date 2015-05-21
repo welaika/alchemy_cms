@@ -39,13 +39,20 @@ module Alchemy
       private
 
       def set_clipboard
-        @clipboard = get_clipboard(params[:remarkable_type])
+        @clipboard = get_clipboard(remarkable_type)
       end
 
       def model_class
-        "alchemy/#{params[:remarkable_type]}".classify.constantize
+        "alchemy/#{remarkable_type}".classify.constantize
       end
 
+      def remarkable_type
+        if %w(elements pages).include?(params[:remarkable_type])
+          params[:remarkable_type]
+        else
+          raise "Unsupported remarkable type"
+        end
+      end
     end
   end
 end
