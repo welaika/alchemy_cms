@@ -14,11 +14,6 @@ shared_examples_for "an essence" do
     expect(content.updated_at).not_to eq(date)
   end
 
-  it "should have correct partial path" do
-    underscored_essence = essence.class.name.demodulize.underscore
-    expect(essence.to_partial_path).to eq("alchemy/essences/#{underscored_essence}_view")
-  end
-
   describe '#description' do
     subject { essence.description }
 
@@ -57,6 +52,32 @@ shared_examples_for "an essence" do
 
           it { is_expected.to eq({}) }
         end
+      end
+    end
+  end
+
+  describe "#to_partial_path" do
+    context 'without part given' do
+      subject { essence.to_partial_path }
+
+      it 'returns view partial path.' do
+        expect(subject).to eq("alchemy/essences/#{essence.partial_name}_view")
+      end
+    end
+
+    context 'with editor as part given' do
+      subject { essence.to_partial_path('editor') }
+
+      it 'returns editor partial path.' do
+        expect(subject).to eq("alchemy/essences/#{essence.partial_name}_editor")
+      end
+    end
+
+    context 'with something else as part given' do
+      subject { essence.to_partial_path('foo') }
+
+      it 'raises error.' do
+        expect { subject }.to raise_error(ArgumentError)
       end
     end
   end

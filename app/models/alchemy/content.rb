@@ -83,7 +83,9 @@ module Alchemy
       end
     end
 
-    # The content's view partial is dependent from its name
+    # The content's view partial
+    #
+    # It uses the view partial of the essence type.
     #
     # == Define contents
     #
@@ -98,8 +100,12 @@ module Alchemy
     #
     # Content partials live in +app/views/alchemy/essences+
     #
-    def to_partial_path
-      "alchemy/essences/#{essence_partial_name}_view"
+    # @param part (String) ['view']
+    #   - Pass 'editor', if you want to render the editor partial instead.
+    #
+    def to_partial_path(part = 'view')
+      return '' if essence.nil?
+      essence.to_partial_path(part)
     end
 
     # Settings from the elements.yml definition
@@ -250,6 +256,5 @@ module Alchemy
         default
       end
     end
-
   end
 end

@@ -221,12 +221,25 @@ module Alchemy #:nodoc:
         acts_as_essence_class.present?
       end
 
-      def to_partial_path
-        "alchemy/essences/#{partial_name}_view"
+      # Essence partial path
+      #
+      # There is a view and an editor partial for each essence.
+      #
+      # Partials live in +app/views/alchemy/essences+
+      #
+      # @param part (String) ['view']
+      #   - Pass 'editor', if you want to render the editor partial instead.
+      #
+      def to_partial_path(part = 'view')
+        unless %w(editor view).include?(part.to_s)
+          raise ArgumentError,
+            "Unsupported partial part! Only 'view' and 'editor' are supported, you passed #{part}."
+        end
+
+        "alchemy/essences/#{partial_name}_#{part}"
       end
-
     end
-
   end
 end
+
 ActiveRecord::Base.class_eval { include Alchemy::Essence } if defined?(Alchemy::Essence)

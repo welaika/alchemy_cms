@@ -394,5 +394,35 @@ module Alchemy
         expect(content.public?).to be false
       end
     end
+
+    describe "#to_partial_path" do
+      let(:content) { build(:content) }
+
+      context 'without part given' do
+        subject { content.to_partial_path }
+
+        it 'returns view partial path of essence.' do
+          expect(content.essence).to receive(:to_partial_path).with('view')
+          subject
+        end
+
+        context 'if essence is nil' do
+          before do
+            expect(content).to receive(:essence) { nil }
+          end
+
+          it { is_expected.to eq '' }
+        end
+      end
+
+      context 'with editor as part given' do
+        subject { content.to_partial_path('editor') }
+
+        it 'returns editor partial path of essence.' do
+          expect(content.essence).to receive(:to_partial_path).with('editor')
+          subject
+        end
+      end
+    end
   end
 end
