@@ -13,7 +13,7 @@ module Alchemy
       end
 
       def create
-        @element = Element.find(params[:content][:element_id])
+        @element = Element.find(content_params[:element_id])
         @content = Content.create_from_scratch(@element, content_params)
         @options = options_from_params
         @html_options = params[:html_options] || {}
@@ -54,7 +54,7 @@ module Alchemy
       end
 
       def picture_gallery_editor?
-        params[:content][:essence_type] == 'Alchemy::EssencePicture' && @options[:grouped] == 'true'
+        content_params[:essence_type] == 'Alchemy::EssencePicture' && @options[:grouped] == 'true'
       end
 
       def options_for_picture_gallery
@@ -70,7 +70,6 @@ module Alchemy
           html_options: @html_options.symbolize_keys
         }
       end
-
     end
   end
 end
