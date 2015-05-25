@@ -117,8 +117,8 @@ module Alchemy
         locale: (multi_language? ? @page.language_code : nil),
         urlname: @page.urlname
       }.merge(options)
-
-      redirect_to show_page_path(additional_params.merge(options)), status: 301
+      # Symbolize keys to make them work with rails url helpers :/
+      redirect_to show_page_path(additional_params.symbolize_keys.merge(options)), status: 301
     end
 
     # Use the bare minimum to redirect to @page
@@ -140,9 +140,8 @@ module Alchemy
     # * locale
     #
     def additional_params
-      params.symbolize_keys.delete_if do |key, _|
-        [:action, :controller, :urlname, :locale].include?(key)
-      end
+      # Stringify keys to prevent DOS attacks with Ruby < 2.2!
+      params.except(:action, :controller, :urlname, :locale).stringify_keys
     end
 
     def legacy_urls

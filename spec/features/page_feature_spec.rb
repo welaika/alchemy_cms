@@ -91,9 +91,21 @@ module Alchemy
           end
         end
 
-        it "should keep additional params" do
-          visit "/#{public_page_1.urlname}?query=Peter"
-          expect(page.current_url).to match(/\?query=Peter/)
+        context 'with additional params' do
+          it "keeps them." do
+            visit "/#{public_page_1.urlname}?query=Peter"
+            expect(page.current_url).to match(/\?query=Peter/)
+          end
+
+          context 'that are internal params' do
+            it "drops them." do
+              visit "/#{public_page_1.urlname}?query=Peter"
+              expect(page.current_url).to_not match(/\?action=show/)
+              expect(page.current_url).to_not match(/\?controller=pages/)
+              expect(page.current_url).to_not match(/\?urlname=#{public_page_1.urlname}/)
+              expect(page.current_url).to_not match(/\?locale=#{::I18n.locale}/)
+            end
+          end
         end
 
         context "wrong language requested" do
