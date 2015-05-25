@@ -130,7 +130,6 @@ module Alchemy
       def archive_overlay
         @content = Content.select('id').find_by(id: params[:content_id])
         @element = Element.select('id').find_by(id: params[:element_id])
-        @options = options_from_params
         respond_to do |format|
           format.html { render partial: 'archive_overlay' }
           format.js   { render action:  'archive_overlay' }
@@ -158,11 +157,9 @@ module Alchemy
         @while_assigning = true
         @content = Content.select('id').find_by(id: params[:content_id])
         @element = Element.select('id').find_by(id: params[:element_id])
-        @options = options_from_params
         @page = params[:page] || 1
         @per_page = pictures_per_page_for_size(@size)
       end
-
     end
   end
 end

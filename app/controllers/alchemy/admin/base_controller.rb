@@ -3,6 +3,7 @@ module Alchemy
     class BaseController < Alchemy::BaseController
       include Userstamp
       include Alchemy::Locale
+      include Alchemy::OptionsParams
 
       before_filter { enforce_ssl if ssl_required? && !request.ssl? }
 
@@ -131,25 +132,6 @@ module Alchemy
         end
       end
 
-      # Extracts options from params.
-      #
-      # Helps to parse JSONified options into Hash or Array
-      #
-      def options_from_params
-        case params[:options]
-        when ''
-          {}
-        when String
-          JSON.parse(params[:options])
-        when Hash
-          params[:options]
-        when Array
-          params[:options]
-        else
-          {}
-        end.symbolize_keys
-      end
-
       # This method decides if we want to raise an exception or not.
       #
       # I.e. in test environment.
@@ -162,7 +144,6 @@ module Alchemy
       def is_page_preview?
         controller_path == 'alchemy/admin/pages' && action_name == 'show'
       end
-
     end
   end
 end

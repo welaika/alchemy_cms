@@ -63,8 +63,8 @@ module Alchemy
           (content_settings_value(content, :crop, options) == true || content_settings_value(content, :crop, options) == "true")
         image_options = {
           size: content.essence.thumbnail_size(content.essence.render_size.blank? ? content_settings_value(content, :size, options) : content.essence.render_size, crop),
-          crop_from: content.essence.crop_from.blank? ? nil : content.essence.crop_from,
-          crop_size: content.essence.crop_size.blank? ? nil : content.essence.crop_size,
+          crop_from: content.essence.crop_from.presence,
+          crop_size: content.essence.crop_size.presence,
           crop: crop ? 'crop' : nil,
           upsample: content_settings_value(content, :upsample, options)
         }
@@ -114,7 +114,6 @@ module Alchemy
           page.name
         end
       end
-
     end
   end
 end

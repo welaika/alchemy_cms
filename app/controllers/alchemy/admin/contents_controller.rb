@@ -7,7 +7,6 @@ module Alchemy
 
       def new
         @element = Element.find(params[:element_id])
-        @options = options_from_params
         @contents = @element.available_contents
         @content = @element.contents.build
       end
@@ -15,7 +14,6 @@ module Alchemy
       def create
         @element = Element.find(content_params[:element_id])
         @content = Content.create_from_scratch(@element, content_params)
-        @options = options_from_params
         @html_options = params[:html_options] || {}
         if picture_gallery_editor?
           @content.update_essence(picture_id: params[:picture_id])

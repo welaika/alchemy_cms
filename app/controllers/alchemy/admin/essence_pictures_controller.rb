@@ -5,7 +5,6 @@ module Alchemy
 
       before_filter :load_essence_picture, only: [:edit, :crop, :update]
       before_filter :load_content, only: [:edit, :update, :assign]
-      before_filter :load_options
 
       helper 'alchemy/admin/contents'
       helper 'alchemy/admin/essences'
@@ -62,10 +61,6 @@ module Alchemy
 
       private
 
-      def load_options
-        @options = options_from_params
-      end
-
       def load_essence_picture
         @essence_picture = EssencePicture.find(params[:id])
       end
@@ -114,7 +109,6 @@ module Alchemy
       def essence_picture_params
         params.require(:essence_picture).permit(:alt_tag, :caption, :css_class, :render_size, :title, :crop_from, :crop_size)
       end
-
     end
   end
 end
