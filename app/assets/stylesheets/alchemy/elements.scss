@@ -308,7 +308,7 @@ div#cells {
   right: 0;
 
   .icon_button {
-    @include button-defaults;
+    @extend .btn;
     margin: 0 0 0 4px;
     padding: 3px;
     position: absolute;
