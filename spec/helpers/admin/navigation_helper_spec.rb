@@ -128,7 +128,7 @@ describe Alchemy::Admin::NavigationHelper do
 
   describe '#main_navigation_css_classes' do
     it "returns string with css classes for main navigation entry" do
-      expect(helper.main_navigation_css_classes(navigation)).to eq("main_navi_entry")
+      expect(helper.main_navigation_css_classes(navigation)).to eq("main_navi_entry with-children")
     end
 
     context "with active entry" do
@@ -140,7 +140,7 @@ describe Alchemy::Admin::NavigationHelper do
       end
 
       it "includes active class" do
-        expect(helper.main_navigation_css_classes(navigation)).to eq("main_navi_entry active")
+        expect(helper.main_navigation_css_classes(navigation)).to eq("main_navi_entry active with-children")
       end
     end
   end
