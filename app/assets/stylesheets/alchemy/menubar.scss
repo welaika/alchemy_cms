@@ -2,6 +2,10 @@
  *= require_self
  */
 
+@import "bootstrap-sprockets";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+@import "bootstrap/buttons";
 @import "alchemy/variables";
 @import "alchemy/mixins";
 @import "alchemy/extends";
