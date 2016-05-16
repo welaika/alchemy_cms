@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -24,9 +23,8 @@ ActiveRecord::Schema.define(version: 20160617224938) do
     t.datetime "updated_at",      null: false
     t.text     "cached_tag_list"
     t.string   "file_uid"
+    t.index ["file_uid"], name: "index_alchemy_attachments_on_file_uid"
   end
-
-  add_index "alchemy_attachments", ["file_uid"], name: "index_alchemy_attachments_on_file_uid"
 
   create_table "alchemy_cells", force: :cascade do |t|
     t.integer  "page_id"
@@ -45,9 +43,8 @@ ActiveRecord::Schema.define(version: 20160617224938) do
     t.datetime "updated_at",   null: false
     t.integer  "creator_id"
     t.integer  "updater_id"
+    t.index ["element_id", "position"], name: "index_contents_on_element_id_and_position"
   end
-
-  add_index "alchemy_contents", ["element_id", "position"], name: "index_contents_on_element_id_and_position"
 
   create_table "alchemy_elements", force: :cascade do |t|
     t.string   "name"
@@ -63,10 +60,9 @@ ActiveRecord::Schema.define(version: 20160617224938) do
     t.integer  "cell_id"
     t.text     "cached_tag_list"
     t.integer  "parent_element_id"
+    t.index ["page_id", "parent_element_id"], name: "index_alchemy_elements_on_page_id_and_parent_element_id"
+    t.index ["page_id", "position"], name: "index_elements_on_page_id_and_position"
   end
-
-  add_index "alchemy_elements", ["page_id", "parent_element_id"], name: "index_alchemy_elements_on_page_id_and_parent_element_id"
-  add_index "alchemy_elements", ["page_id", "position"], name: "index_elements_on_page_id_and_position"
 
   create_table "alchemy_elements_alchemy_pages", id: false, force: :cascade do |t|
     t.integer "element_id"
@@ -79,9 +75,8 @@ ActiveRecord::Schema.define(version: 20160617224938) do
     t.datetime "updated_at", null: false
     t.integer  "creator_id"
     t.integer  "updater_id"
+    t.index ["value"], name: "index_alchemy_essence_booleans_on_value"
   end
-
-  add_index "alchemy_essence_booleans", ["value"], name: "index_alchemy_essence_booleans_on_value"
 
   create_table "alchemy_essence_dates", force: :cascade do |t|
     t.datetime "date"
@@ -156,9 +151,8 @@ ActiveRecord::Schema.define(version: 20160617224938) do
     t.datetime "updated_at", null: false
     t.integer  "creator_id"
     t.integer  "updater_id"
+    t.index ["value"], name: "index_alchemy_essence_selects_on_value"
   end
-
-  add_index "alchemy_essence_selects", ["value"], name: "index_alchemy_essence_selects_on_value"
 
   create_table "alchemy_essence_texts", force: :cascade do |t|
     t.text     "body"
@@ -193,20 +187,18 @@ ActiveRecord::Schema.define(version: 20160617224938) do
     t.string   "country_code",   default: "",      null: false
     t.integer  "site_id"
     t.string   "locale"
+    t.index ["language_code", "country_code"], name: "index_alchemy_languages_on_language_code_and_country_code"
+    t.index ["language_code"], name: "index_alchemy_languages_on_language_code"
+    t.index ["site_id"], name: "index_alchemy_languages_on_site_id"
   end
-
-  add_index "alchemy_languages", ["language_code", "country_code"], name: "index_alchemy_languages_on_language_code_and_country_code"
-  add_index "alchemy_languages", ["language_code"], name: "index_alchemy_languages_on_language_code"
-  add_index "alchemy_languages", ["site_id"], name: "index_alchemy_languages_on_site_id"
 
   create_table "alchemy_legacy_page_urls", force: :cascade do |t|
     t.string   "urlname",    null: false
     t.integer  "page_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["urlname"], name: "index_alchemy_legacy_page_urls_on_urlname"
   end
-
-  add_index "alchemy_legacy_page_urls", ["urlname"], name: "index_alchemy_legacy_page_urls_on_urlname"
 
   create_table "alchemy_pages", force: :cascade do |t|
     t.string   "name"
@@ -238,13 +230,12 @@ ActiveRecord::Schema.define(version: 20160617224938) do
     t.datetime "public_on"
     t.datetime "public_until"
     t.datetime "locked_at"
+    t.index ["language_id"], name: "index_pages_on_language_id"
+    t.index ["locked_at", "locked_by"], name: "index_alchemy_pages_on_locked_at_and_locked_by"
+    t.index ["parent_id", "lft"], name: "index_pages_on_parent_id_and_lft"
+    t.index ["public_on", "public_until"], name: "index_alchemy_pages_on_public_on_and_public_until"
+    t.index ["urlname"], name: "index_pages_on_urlname"
   end
-
-  add_index "alchemy_pages", ["language_id"], name: "index_pages_on_language_id"
-  add_index "alchemy_pages", ["locked_at", "locked_by"], name: "index_alchemy_pages_on_locked_at_and_locked_by"
-  add_index "alchemy_pages", ["parent_id", "lft"], name: "index_pages_on_parent_id_and_lft"
-  add_index "alchemy_pages", ["public_on", "public_until"], name: "index_alchemy_pages_on_public_on_and_public_until"
-  add_index "alchemy_pages", ["urlname"], name: "index_pages_on_urlname"
 
   create_table "alchemy_pictures", force: :cascade do |t|
     t.string   "name"
@@ -270,10 +261,9 @@ ActiveRecord::Schema.define(version: 20160617224938) do
     t.boolean  "public",                   default: false
     t.text     "aliases"
     t.boolean  "redirect_to_primary_host"
+    t.index ["host", "public"], name: "alchemy_sites_public_hosts_idx"
+    t.index ["host"], name: "index_alchemy_sites_on_host"
   end
-
-  add_index "alchemy_sites", ["host", "public"], name: "alchemy_sites_public_hosts_idx"
-  add_index "alchemy_sites", ["host"], name: "index_alchemy_sites_on_host"
 
   create_table "dummy_models", force: :cascade do |t|
     t.string "data"
@@ -282,9 +272,8 @@ ActiveRecord::Schema.define(version: 20160617224938) do
   create_table "dummy_users", force: :cascade do |t|
     t.string "email"
     t.string "password"
+    t.index ["email"], name: "index_dummy_users_on_email"
   end
-
-  add_index "dummy_users", ["email"], name: "index_dummy_users_on_email"
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
@@ -309,22 +298,27 @@ ActiveRecord::Schema.define(version: 20160617224938) do
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
-    t.integer  "taggable_id"
     t.string   "taggable_type"
-    t.integer  "tagger_id"
+    t.integer  "taggable_id"
     t.string   "tagger_type"
+    t.integer  "tagger_id"
     t.string   "context",       limit: 128
     t.datetime "created_at"
+    t.index ["context"], name: "index_taggings_on_context"
+    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+    t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy"
+    t.index ["taggable_id"], name: "index_taggings_on_taggable_id"
+    t.index ["taggable_type"], name: "index_taggings_on_taggable_type"
+    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type"
+    t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
   end
-
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
 
   create_table "tags", force: :cascade do |t|
     t.string  "name"
     t.integer "taggings_count", default: 0
+    t.index ["name"], name: "index_tags_on_name", unique: true
   end
-
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
 end
