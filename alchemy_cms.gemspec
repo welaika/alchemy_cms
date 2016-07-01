@@ -19,11 +19,11 @@ Gem::Specification.new do |gem|
   gem.executables           = 'alchemy'
   gem.require_paths         = ['lib']
 
-  gem.add_runtime_dependency 'actionpack-page_caching',          ['~> 1.0.0']
+  gem.add_runtime_dependency 'actionpack-page_caching',          ['~> 2.0.0']
   gem.add_runtime_dependency 'active_model_serializers',         ['~> 0.9.0']
   gem.add_runtime_dependency 'acts_as_list',                     ['~> 0.3']
   gem.add_runtime_dependency 'acts-as-taggable-on',              ['~> 3.1']
-  gem.add_runtime_dependency 'awesome_nested_set',               ['~> 3.0.0']
+  gem.add_runtime_dependency 'awesome_nested_set',               ['~> 3.1']
   gem.add_runtime_dependency 'cancancan',                        ['~> 1.9']
   gem.add_runtime_dependency 'coffee-rails',                     ['~> 4.0']
   gem.add_runtime_dependency 'compass-rails',                    ['>= 2.0.4', '< 4.0']
@@ -34,7 +34,7 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency 'kaminari',                         ['~> 0.15']
   gem.add_runtime_dependency 'magiclabs-userstamp',              ['~> 2.1.0']
   gem.add_runtime_dependency 'non-stupid-digest-assets',         ['~> 1.0.8']
-  gem.add_runtime_dependency 'rails',                            ['>= 5.0.0.rc1', '< 5.1']
+  gem.add_runtime_dependency 'rails',                            ['>= 5.0.0', '< 5.1']
   gem.add_runtime_dependency 'ransack',                          ['~> 1.4']
   gem.add_runtime_dependency 'request_store',                    ['~> 1.2']
   gem.add_runtime_dependency 'responders',                       ['~> 2.0']
