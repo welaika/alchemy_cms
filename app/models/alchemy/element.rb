@@ -74,7 +74,7 @@ module Alchemy
     # A nested element belongs to a parent element.
     belongs_to :parent_element, class_name: 'Alchemy::Element', touch: true
 
-    has_and_belongs_to_many :touchable_pages, -> { uniq },
+    has_and_belongs_to_many :touchable_pages, -> { distinct },
       class_name: 'Alchemy::Page',
       join_table: ElementToPage.table_name
 
