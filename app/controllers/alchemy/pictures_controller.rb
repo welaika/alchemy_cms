@@ -41,7 +41,7 @@ module Alchemy
     end
 
     def bad_request
-      render text: "Bad picture parameters in #{request.path}", status: 400
+      render plain: "Bad picture parameters in #{request.path}", status: 400
       false
     end
 
