@@ -64,9 +64,9 @@ module Alchemy
             encoding_options << "-flatten"
           end
           if @picture.has_convertible_format?
-            render text: image.encode(type, encoding_options.join(' ')).data
+            render body: image.encode(type, encoding_options.join(' ')).data
           else
-            render text: image.data
+            render body: image.data
           end
         end
       end
