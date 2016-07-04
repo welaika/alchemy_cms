@@ -9,6 +9,7 @@ gem 'pg'      if ENV['DB'] == 'postgresql'
 # Rails 5 compatibility
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
 gem 'actionpack-page_caching', github: 'schuylr/actionpack-page_caching', branch: 'rails5'
+gem 'magiclabs-userstamp', github: 'magiclabs/userstamp', branch: 'rails-5'
 
 group :development, :test do
   gem 'jasmine-rails',        github: 'searls/jasmine-rails'
