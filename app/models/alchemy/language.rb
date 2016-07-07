@@ -31,7 +31,7 @@ module Alchemy
     validates :language_code,
       presence: true,
       uniqueness: { scope: [:site_id, :country_code] },
-      format: { with: /\A[a-z]{2}\z/, if: -> { language_code.present? } }
+      format: { with: /\A[a-z]{2,3}\z/, if: -> { language_code.present? } }
 
     validates :country_code,
       format: { with: /\A[a-zA-Z]{2}\z/, if: -> { country_code.present? } }
